@@ -19,11 +19,11 @@ import alabaster
 # blog_path = 'blog'
 
 # The "title" for the blog, used in active pages.  Default is ``'Blog'``.
-blog_title = "Kasper Junge Blog"
+blog_title = "Kasper Junge"
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
-blog_baseurl = ""
+blog_baseurl = "https://kasperjunge.github.io"
 
 # Choose to archive only post titles. Archiving only titles can speed
 # up project building.
@@ -114,7 +114,7 @@ html_sidebars = {
             ],
     }
 
-# -- Blog Feed Options --------------------------------------------------------
+# -- Blog Feed p --------------------------------------------------------
 
 # Turn feeds by setting :confval:`blog_baseurl` configuration variable.
 # Choose to create feeds per author, location, tag, category, and year,
