@@ -157,7 +157,7 @@ Here's a quick overview of the files:
 
  
 
-.. ablog_website = "kasperjunge.github.io"
+.. ablog_website = "docs"
 .. github_pages = "kasperjunge"
 
 .. # List of patterns, relative to source directory, that match files and
@@ -167,7 +167,10 @@ Here's a quick overview of the files:
 ..     '**/*.dist-info/**',
 .. ]
 
-.. run git add . + git commit -m "some message" before running uv run ablog deploy
+.. Step 4: Deploy Blog to GitHub Pages
+.. commit build files to the repository:
+
+.. uv run ablog deploy --github-branch main -w kasperjunge.github.io -g kasperjunge
 -----------------
 
 
