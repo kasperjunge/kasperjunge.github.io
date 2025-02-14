@@ -155,7 +155,6 @@ Here's a quick overview of the files:
 - **first-post** : example blog post, which you can edit to be your first blog post 🎉
 - **conf.py** : configuration file for sphinx and ablog
 
-hest
  
 
 .. ablog_website = "kasperjunge.github.io"
