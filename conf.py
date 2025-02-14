@@ -14,7 +14,7 @@ import ablog
 import alabaster
 
 # Stuff I added
-ablog_website = "kasperjunge.github.io"
+ablog_website = "docs"
 github_pages = "kasperjunge"
 
 
