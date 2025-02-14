@@ -13,6 +13,18 @@ import sys
 import ablog
 import alabaster
 
+# -- Stuff I added ----------------------------------------------------
+ablog_website = "kasperjunge.github.io"
+github_pages = "kasperjunge"
+
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+exclude_patterns = [""
+    '**/site-packages/**',
+    '**/*.dist-info/**',
+]
+
+
 # -- General ABlog Options ----------------------------------------------------
 
 # A path relative to the configuration directory for blog archive pages.
@@ -24,6 +36,7 @@ blog_title = "Kasper Junge Blog"
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
 blog_baseurl = ""
+
 
 # Choose to archive only post titles. Archiving only titles can speed
 # up project building.
@@ -234,12 +247,7 @@ language = "en"
 # Else, today_fmt is used as the format for a strftime call.
 # today_fmt = '%%B %%d, %%Y'
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-exclude_patterns = [""
-    '**/site-packages/**',
-    '**/*.dist-info/**',
-]
+
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
