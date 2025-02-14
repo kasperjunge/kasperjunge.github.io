@@ -157,17 +157,17 @@ Here's a quick overview of the files:
 
  
 
-ablog_website = "kasperjunge.github.io"
-github_pages = "kasperjunge"
+.. ablog_website = "kasperjunge.github.io"
+.. github_pages = "kasperjunge"
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-exclude_patterns = [""
-    '**/site-packages/**',
-    '**/*.dist-info/**',
-]
+.. # List of patterns, relative to source directory, that match files and
+.. # directories to ignore when looking for source files.
+.. exclude_patterns = [""
+..     '**/site-packages/**',
+..     '**/*.dist-info/**',
+.. ]
 
-run git add . before running uv run ablog deploy
+.. run git add . + git commit -m "some message" before running uv run ablog deploy
 -----------------
 
 

@@ -16,6 +16,7 @@ import alabaster
 # -- Stuff I added ----------------------------------------------------
 ablog_website = "kasperjunge.github.io"
 github_pages = "kasperjunge"
+github_pages_branch = "main"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
