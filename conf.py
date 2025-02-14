@@ -13,17 +13,9 @@ import sys
 import ablog
 import alabaster
 
-# -- Stuff I added ----------------------------------------------------
+# Stuff I added
 ablog_website = "kasperjunge.github.io"
 github_pages = "kasperjunge"
-github_pages_branch = "main"
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-exclude_patterns = [""
-    '**/site-packages/**',
-    '**/*.dist-info/**',
-]
 
 
 # -- General ABlog Options ----------------------------------------------------
@@ -248,7 +240,12 @@ language = "en"
 # Else, today_fmt is used as the format for a strftime call.
 # today_fmt = '%%B %%d, %%Y'
 
-
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+exclude_patterns = [""
+    '**/site-packages/**',
+    '**/*.dist-info/**',
+]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
