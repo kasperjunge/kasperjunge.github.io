@@ -10,7 +10,7 @@ def deploy():
     subprocess.run('git commit -m "update blog"', shell=True)
     
     print("\n------ Pushing changes")
-    subprocess.run("uv run ablog deploy --github-branch main -w ./docs -g kasperjunge -p ./docs", shell=True)
+    subprocess.run("uv run ablog deploy --github-branch main -w /Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/docs -g kasperjunge -p /Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/docs", shell=True)
 
 if __name__ == "__main__":
     deploy()
