@@ -200,6 +200,6 @@ To deploy your blog to GitHub Pages, you need to build the blog and push the bui
 
 To do that we have to execute the following steps:
 
-1. Use ablogs' commandline interface (CLI) to build the blog to a build directory called docs/
+1. Build the blog to a build directory called "docs/"" using ablogs CLI command: ablog build
 2. Commit the repository changes to git
-3. Run 
+3. Push the changes to GitHub using ablogs CLI command: ablog deploy
