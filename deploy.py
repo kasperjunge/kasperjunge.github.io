@@ -6,7 +6,7 @@ def deploy():
     build_path = (Path(__file__).parent / "docs").resolve()
     build_str = str(build_path)
     
-    subprocess.run("uv run ablog build", shell=True)
+    subprocess.run("uv run ablog build -w docs", shell=True)
     subprocess.run("git add .", shell=True)
     subprocess.run('git commit -m "update blog"', shell=True)
     subprocess.run(
