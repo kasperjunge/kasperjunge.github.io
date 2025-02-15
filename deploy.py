@@ -2,10 +2,8 @@ import subprocess
 from pathlib import Path
 
 def deploy():
-    # Get the absolute path to the 'docs' directory located in the root repo directory
     build_path = (Path(__file__).parent / "docs").resolve()
     build_str = str(build_path)
-    
     subprocess.run("uv run ablog build -w docs", shell=True)
     subprocess.run("git add .", shell=True)
     subprocess.run('git commit -m "update blog"', shell=True)
