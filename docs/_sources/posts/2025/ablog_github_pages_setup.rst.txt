@@ -170,6 +170,7 @@ Here's a quick overview of the files:
 .. Step 4: Deploy Blog to GitHub Pages
 .. commit build files to the repository:
 .. uv run ablog deploy --github-branch main -w kasperjunge.github.io -g kasperjunge -p docs/
+.. I need to figure out how to deploy to docs dir 
 -----------------
 
 
