@@ -174,6 +174,12 @@ mv<span class="w"> </span>first-post.rst<span class="w"> </span>posts/2025
 </div>
 <p>Now we’re almost ready for deploying our blog to GitHub Pages, but before we do that, we need one last thing.</p>
 <p>Since we have our .venv/ directory in the project we need to add some files to the exclude_patterns in the conf.py file to avoid sphinx interpreting the files in the .venv/ directory as blog post material.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span>
+   <span class="s1">&#39;**/site-packages/**&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;**/*.dist-info/**&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="step-4-deploy-your-blog">
 <h2>Step 4: Deploy your blog<a class="headerlink" href="#step-4-deploy-your-blog" title="Link to this heading">¶</a></h2>

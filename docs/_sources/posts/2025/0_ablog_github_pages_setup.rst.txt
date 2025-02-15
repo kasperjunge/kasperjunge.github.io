@@ -189,6 +189,7 @@ Now we're almost ready for deploying our blog to GitHub Pages, but before we do 
 Since we have our .venv/ directory in the project we need to add some files to the exclude_patterns in the conf.py file to avoid sphinx interpreting the files in the .venv/ directory as blog post material.
 
 .. code-block:: python
+   
    exclude_patterns = [""
       '**/site-packages/**',
       '**/*.dist-info/**',
