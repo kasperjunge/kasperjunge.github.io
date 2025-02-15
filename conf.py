@@ -13,10 +13,6 @@ import sys
 import ablog
 import alabaster
 
-# Stuff I added
-ablog_website = "./docs"
-github_pages = "kasperjunge"
-
 
 # -- General ABlog Options ----------------------------------------------------
 
