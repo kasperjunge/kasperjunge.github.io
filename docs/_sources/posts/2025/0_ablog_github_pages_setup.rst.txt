@@ -3,7 +3,7 @@
    :tags: Guides
    :author: Kasper Junge
 
-How to create a blog with Sphinx and ablog hosted on GitHub Pages
+How to create a free blog with Sphinx and ablog hosted on GitHub Pages
 ===============================================================
 
 *This blog post will show you have to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.*
@@ -152,7 +152,31 @@ Here's a quick overview of the files:
 - **conf.py** : configuration file for sphinx and ablog
 - **_static/ and _templates/** : directories for static files and templates that sphinx/ablog uses
 
-Now to keep things organized, let's move the first-post.rst file to a posts directory and create a 2025 directory in it:
+Your first auto-generated example blog post is going to look something like this:
+
+
+.. code-block:: rst
+    
+
+   .. Kasper Junge post example, created by `ablog start` on Feb 14, 2025.
+
+   .. post:: Feb 14, 2025
+      :tags: atag
+      :author: Kasper Junge
+
+   First Post
+   ==========
+
+   World, hello again! This very first paragraph of the post will be used
+   as excerpt in archives and feeds. Find out how to control how much is shown
+   in `Post Excerpts and Images
+   <https://ablog.readthedocs.io/manual/post-excerpts-and-images/>`__. Remember
+   that you can refer to posts by file name, e.g. ``:ref:`first-post``` results
+   in :ref:`first-post`. Find out more at `Cross-Referencing Blog Pages
+   <https://ablog.readthedocs.io/manual/cross-referencing-blog-pages/>`__.
+
+As far as I understood, ablog will automatically pick up any .rst files with the post directive (the "..post::"" thing) and add them to the blog. 
+Thus, it should not matter too much where the blog posts are kept, but for keeping things organized, I like to move the first-post.rst file to a posts directory and create a 2025 directory in it:
 
 .. code-block:: bash
     
@@ -160,7 +184,9 @@ Now to keep things organized, let's move the first-post.rst file to a posts dire
    mkdir posts/2025
    mv first-post.rst posts/2025
 
-Great! Now, since we have our .venv/ directory in the project we need to add some files to the exclude_patterns in the conf.py file to avoid sphinx interpreting the files in the .venv/ directory as blog post material.
+Now we're almost ready for deploying our blog to GitHub Pages, but before we do that, we need one last thing.
+
+Since we have our .venv/ directory in the project we need to add some files to the exclude_patterns in the conf.py file to avoid sphinx interpreting the files in the .venv/ directory as blog post material.
 
 .. code-block:: python
    exclude_patterns = [""
@@ -168,68 +194,12 @@ Great! Now, since we have our .venv/ directory in the project we need to add som
       '**/*.dist-info/**',
    ]
 
+Step 4: Deploy your blog
+----------------------------------
+To deploy your blog to GitHub Pages, you need to build the blog and push the build files to the repository. 
 
------------------
+To do that we have to execute the following steps:
 
-
-
-
-
-
-
-
-
-
-.. Step 0:
-.. Create a project directory, cd inside it and initialize a uv project and install ablog.
-.. 0.1 - `uv init .`
-.. 0.2 - `uv add ablog`
-
-.. Step 1:
-.. `uv run ablog start`
-
-.. Setup 2:
-.. Edit conf.py file:
-
-.. from this:
-
-.. exclude_patterns = [""]
-
-.. to this: 
-
-.. exclude_patterns = [
-..     '**/site-packages/**',
-..     '**/*.dist-info/**',
-.. ]
-
-.. For me `uv run ablog build` was failing with the error because it was interpreting some files in the site-packages directory as a blog post material. This change fixed it.
-
-.. Step 3:
-.. Make a posts directory and a 2025 directory in it, to group posts on year.
-
-.. Step 4:
-.. Move ablogs auto-generated first-post.rst file to the posts directory and rewrite it to be a hello world post.
-
-.. Step 5:
-.. Build the blog by running: 
-.. uv run ablog build
-
-.. Step 6:
-.. Serve the blog on localhost:8000 with reload on changes by running: 
-.. uv run ablog serve -r
-
-.. Step 7:
-.. Create a github repo named <username>.github.io
-
-.. Step 8:
-
-
-
-.. Other conf.py edits:
-.. - theme
-.. - html_title
-
-
-.. ???
-.. uv run ablog deploy --github-branch main
-.. No place to deploy.a
+1. Use ablogs' commandline interface (CLI) to build the blog to a build directory called docs/
+2. Commit the repository changes to git
+3. Run 

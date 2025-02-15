@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>How to create a blog with Sphinx and ablog hosted on GitHub Pages &#8212; Kasper Junge  documentation</title>
+    <title>How to create a free blog with Sphinx and ablog hosted on GitHub Pages &#8212; Kasper Junge  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/basic.css?v=686e5160" />
     <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=27fed22d" />
@@ -31,8 +31,8 @@
           
 
           <div class="body" role="main">
-             <section id="how-to-create-a-blog-with-sphinx-and-ablog-hosted-on-github-pages">
-<h1>How to create a blog with Sphinx and ablog hosted on GitHub Pages<a class="headerlink" href="#how-to-create-a-blog-with-sphinx-and-ablog-hosted-on-github-pages" title="Link to this heading">¶</a></h1>
+             <section id="how-to-create-a-free-blog-with-sphinx-and-ablog-hosted-on-github-pages">
+<h1>How to create a free blog with Sphinx and ablog hosted on GitHub Pages<a class="headerlink" href="#how-to-create-a-free-blog-with-sphinx-and-ablog-hosted-on-github-pages" title="Link to this heading">¶</a></h1>
 <p><em>This blog post will show you have to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.</em></p>
 <section id="story-skip-if-you-just-want-the-guide">
 <h2>Story (skip if you just want the guide)<a class="headerlink" href="#story-skip-if-you-just-want-the-guide" title="Link to this heading">¶</a></h2>
@@ -146,14 +146,44 @@ To help my fellow blog-wannabes out there, I decided to write this guide to help
 <li><p><strong>conf.py</strong> : configuration file for sphinx and ablog</p></li>
 <li><p><strong>_static/ and _templates/</strong> : directories for static files and templates that sphinx/ablog uses</p></li>
 </ul>
-<p>Now to keep things organized, let’s move the first-post.rst file to a posts directory and create a 2025 directory in it:</p>
+<p>Your first auto-generated example blog post is going to look something like this:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="c">.. Kasper Junge post example, created by `ablog start` on Feb 14, 2025.</span>
+
+<span class="p">..</span> <span class="ow">post</span><span class="p">::</span> Feb 14, 2025
+   <span class="nc">:tags:</span> atag
+   <span class="nc">:author:</span> Kasper Junge
+
+<span class="gh">First Post</span>
+<span class="gh">==========</span>
+
+World, hello again! This very first paragraph of the post will be used
+as excerpt in archives and feeds. Find out how to control how much is shown
+in `Post Excerpts and Images
+<span class="nt">&lt;https://ablog.readthedocs.io/manual/post-excerpts-and-images/&gt;</span>`__. Remember
+that you can refer to posts by file name, e.g. <span class="s">``:ref:`first-post```</span> results
+in <span class="na">:ref:</span><span class="nv">`first-post`</span>. Find out more at `Cross-Referencing Blog Pages
+<span class="nt">&lt;https://ablog.readthedocs.io/manual/cross-referencing-blog-pages/&gt;</span>`__.
+</pre></div>
+</div>
+<p>As far as I understood, ablog will automatically pick up any .rst files with the post directive (the “..post::”” thing) and add them to the blog.
+Thus, it should not matter too much where the blog posts are kept, but for keeping things organized, I like to move the first-post.rst file to a posts directory and create a 2025 directory in it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>posts
 mkdir<span class="w"> </span>posts/2025
 mv<span class="w"> </span>first-post.rst<span class="w"> </span>posts/2025
 </pre></div>
 </div>
-<p>Great! Now, since we have our .venv/ directory in the project we need to add some files to the exclude_patterns in the conf.py file to avoid sphinx interpreting the files in the .venv/ directory as blog post material.</p>
-<hr class="docutils" />
+<p>Now we’re almost ready for deploying our blog to GitHub Pages, but before we do that, we need one last thing.</p>
+<p>Since we have our .venv/ directory in the project we need to add some files to the exclude_patterns in the conf.py file to avoid sphinx interpreting the files in the .venv/ directory as blog post material.</p>
+</section>
+<section id="step-4-deploy-your-blog">
+<h2>Step 4: Deploy your blog<a class="headerlink" href="#step-4-deploy-your-blog" title="Link to this heading">¶</a></h2>
+<p>To deploy your blog to GitHub Pages, you need to build the blog and push the build files to the repository.</p>
+<p>To do that we have to execute the following steps:</p>
+<ol class="arabic simple">
+<li><p>Use ablogs’ commandline interface (CLI) to build the blog to a build directory called docs/</p></li>
+<li><p>Commit the repository changes to git</p></li>
+<li><p>Run</p></li>
+</ol>
 </section>
 </section>
 
@@ -289,7 +319,7 @@ mv<span class="w"> </span>first-post.rst<span class="w"> </span>posts/2025
       &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
-      <a href="../../../_sources/posts/2025/ablog_github_pages_setup.rst.txt"
+      <a href="../../../_sources/posts/2025/0_ablog_github_pages_setup.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

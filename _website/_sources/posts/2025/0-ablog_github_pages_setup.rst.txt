@@ -3,23 +3,38 @@
    :tags: Guides
    :author: Kasper Junge
 
-How to Setup ablog for GitHub Pages
-========================================
+How to create a free blog with Sphinx and ablog hosted on GitHub Pages
+===============================================================
 
 *This blog post will show you have to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.*
 
-I recently became interested in writing code documentation (who doesn't get excited about that?).
+Story (skip if you just want the guide)
+---------------------------------------
 
-I tried to figure out how what the big Python projects used for writing their documentation, and I found out that a lot of them use Sphinx.
+When it comes to blogging, I have always been a wannabe.
 
-I started reading the `Getting Started guide on the Sphinx website <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_, and I there was a line in the intro that I couldn't get out of my head:
+First I got fascinated by Sam Altman's blogging style. You know, the tech-AI visionary who writes thoughtful posts about the future of technology and society. 
+The feel of Sam's blog is kind of late 00's minimalist vibe. 
+`Sam's blog <https://blog.samaltman.com/>`_ is hosted on Posthaven, which is a paid service for hosting blogs, so also used Posthaven for my blog 🫠
 
+However, recently I stumbled upon `Simon Willison's blog <https://simonwillison.net/>`_ and got fascinated by his blogging style. 
+He's more of a hacker-builder type, who writes about his projects and the tools he uses. 
+The feel of Simon's blog is more of a early 00's code docs vibes.
+I have no idea how Simon hosts his blog, but since he is the `co-creator of Django <https://en.wikipedia.org/wiki/Simon_Willison>`_, I assume he built it with that and self-hosts it.
+
+Totally unrelated to blogging I also recently became interested in writing Python documentation (who doesn't get excited about that?). 
+I quickly discovered that `Sphinx <https://www.sphinx-doc.org/en/master/>`_ is the go-to tool for writing Python documentation.
+So I started reading the `Getting Started guide on the Sphinx website <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_, and there was one line in the intro that I got stuck in my head:
 
 *"Sphinx focuses on documentation, in particular handwritten documentation, however, Sphinx can also be used to generate blogs, homepages and even books."*
 
-For some time I have been using posthaven for my blog (mostly because I'm a Sam Altman wannabe).
+This was my moment of enlightenment. I could use Sphinx to create a blog that had the early 00's code docs vibe of my new idol, Simon Willisons blog! 🎉 
+This was litterally the reasoning that went through my head about shutting down my Posthaven blog and starting a new one with Sphinx.
+I started doing research of how use sphinx for blogging and quickly found the `ablog <https://ablog.readthedocs.io/en/latest/>`_ extension for Sphinx that could be hosted free on GitHub Pages.
 
-But recently I have become a Simon Willison wannabe also, and wanted to create an oldschool selfhosted blog like him for a while.
+It turned out to be quite tedious to setup. And to be honest, I'm not sure that ablog is the best option at all, but now I'm too deep into it now to turn back 😂
+To help my fellow blog-wannabes out there, I decided to write this guide to help others who want to create a blog with Sphinx and ablog.
+
 
 Step 1: Create GitHub repository for your blog
 ----------------------------------------------
@@ -30,6 +45,8 @@ When you have create the repository, clone it to your local machine:
 .. code-block:: bash
     
    git clone git@github.com:<username>./<username>..github.io.git
+
+For this guide to work, you’ll also need to open your repository’s Settings on GitHub, navigate to Pages, and under Build and deployment > Branch, change the build folder from /(root) to /docs.
 
 Step 2: Setup Python environment with uv
 -----------------------------------------
@@ -94,39 +111,18 @@ Run the following command to setup ablog:
 You are going to be prompted with a few questions. Here are the questions and the answers I used:
 
 .. code-block:: console
-    
-    Welcome to the ABlog 0.11.12 quick start utility.
 
-    Please enter values for the following settings (just press Enter to accept a
-    default value, if one is given in brackets).
-
-    Enter the root path for your blog project (path has to exist).
     > Root path for your project (path has to exist) [.]:
 
-    Project name will occur in several places in the website, including blog archive
-    pages and atom feeds. Later, you can set separate names for different parts of
-    the website in configuration file.
     > Project name: Kasper Junge
     
-    This of author as the copyright holder of the content. If your blog has multiple
-    authors, you might want to enter a team name here. Later, you can specify
-    individual authors using `blog_authors` configuration option.
     > Author name(s): Kasper Junge
 
-    Please enter the base URL for your project. Blog feeds will be generated
-    relative to this URL. If you don't have one yet, you can set it in configuration
-    file later.
     > Base URL for your project: 
-
-    Creating file ./conf.py.
-    Creating file ./index.rst.
-    Creating file ./about.rst.
-    Creating file ./first-post.rst.
-    Finished: An initial directory structure has been created.
 
 Note that I inserted no base URL for the project.
 
-Now we have a few new files and directories in the project:
+Now we have a some new files and directories in the project:
 
 .. code-block:: bash
     
@@ -152,25 +148,28 @@ Here's a quick overview of the files:
 
 - **index.rst** : index page for your blog, like index.html on websites I guess
 - **about.rst** : you guessed it, an example about page
-- **first-post** : example blog post, which you can edit to be your first blog post 🎉
+- **first-post.rst** : example blog post, which you can edit to be your first blog post 🎉
 - **conf.py** : configuration file for sphinx and ablog
+- **_static/ and _templates/** : directories for static files and templates that sphinx/ablog uses
 
- 
+Now to keep things organized, let's move the first-post.rst file to a posts directory and create a 2025 directory in it:
 
-.. ablog_website = "docs"
-.. github_pages = "kasperjunge"
+.. code-block:: bash
+    
+   mkdir posts
+   mkdir posts/2025
+   mv first-post.rst posts/2025
 
-.. # List of patterns, relative to source directory, that match files and
-.. # directories to ignore when looking for source files.
-.. exclude_patterns = [""
-..     '**/site-packages/**',
-..     '**/*.dist-info/**',
-.. ]
+Great! Now, since we have our .venv/ directory in the project we need to add some files to the exclude_patterns in the conf.py file to avoid sphinx interpreting the files in the .venv/ directory as blog post material.
 
-.. Step 4: Deploy Blog to GitHub Pages
-.. commit build files to the repository:
-.. uv run ablog deploy --github-branch main -w kasperjunge.github.io -g kasperjunge -p docs/
-.. I need to figure out how to deploy to docs dir 
+.. code-block:: python
+   exclude_patterns = [""
+      '**/site-packages/**',
+      '**/*.dist-info/**',
+   ]
+
+
+
 -----------------
 
 

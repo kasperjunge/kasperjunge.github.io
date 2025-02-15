@@ -5,7 +5,7 @@
    :tags: 
    :author: Kasper Junge
 
-crazy post!
+Hello Ablog World!
 ===================
 
 omg, this is my first blog post on my new ablog hosted on github pages! 

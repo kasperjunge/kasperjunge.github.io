@@ -3,7 +3,7 @@
    :tags: Guides
    :author: Kasper Junge
 
-How to create a blog with Sphinx and ablog hosted on GitHub Pages
+How to create a free blog with Sphinx and ablog hosted on GitHub Pages
 ===============================================================
 
 *This blog post will show you have to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.*
@@ -167,6 +167,7 @@ Great! Now, since we have our .venv/ directory in the project we need to add som
       '**/site-packages/**',
       '**/*.dist-info/**',
    ]
+
 
 
 -----------------
