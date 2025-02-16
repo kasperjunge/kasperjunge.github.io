@@ -9,7 +9,8 @@ Welcome to Kasper Junge's Blog!
 Hello World! Find more about me here: :ref:`about`
 
 
-Here is a list of most recent posts:
+Recent posts
+-------------
 
 .. postlist:: 5
    :excerpts:

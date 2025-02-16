@@ -1,0 +1,10 @@
+_static/
+_templates/
+_website/
+docs/
+*.rst
+
+__pycache__/
+.venv/
+uv.lock
+

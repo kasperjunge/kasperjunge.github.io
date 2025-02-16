@@ -25,7 +25,7 @@ blog_title = "Kasper Junge Blog"
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
 blog_baseurl = ""
-
+ablog_website = "docs"
 
 # Choose to archive only post titles. Archiving only titles can speed
 # up project building.
@@ -117,7 +117,7 @@ html_sidebars = {
         'ablog/categories.html',  
         'ablog/archives.html',
         'searchfield.html',
-            ],
+        ],
     }
 
 # -- Blog Feed Options --------------------------------------------------------
@@ -288,6 +288,7 @@ html_theme = "pydata_sphinx_theme"
 # documentation.
 html_theme_options = {
     # 'github_button': False, # valid for alabaster theme
+    "page_sidebar_items": [],
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
