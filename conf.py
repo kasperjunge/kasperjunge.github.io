@@ -288,7 +288,6 @@ html_theme = "pydata_sphinx_theme"
 # documentation.
 html_theme_options = {
     # 'github_button': False, # valid for alabaster theme
-    "page_sidebar_items": [],
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
