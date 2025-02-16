@@ -109,10 +109,14 @@ blog_authors = {
 # In addition, there are authors.html, languages.html, and locations.html
 # sidebars that link to author and location archive pages.
 html_sidebars = {
-'**': [ 'ablog/postcard.html', 'navigation.html',
-            'ablog/recentposts.html', 'ablog/tagcloud.html',
-            'ablog/categories.html',  'ablog/archives.html',
-            'searchfield.html',
+    '**': [ 
+        'ablog/postcard.html', 
+        # 'navigation.html',
+        'ablog/recentposts.html', 
+        'ablog/tagcloud.html',
+        'ablog/categories.html',  
+        'ablog/archives.html',
+        'searchfield.html',
             ],
     }
 
@@ -275,13 +279,15 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+# html_theme = 'alabaster'
+html_theme = "pydata_sphinx_theme"
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'github_button': False,
+    # 'github_button': False, # valid for alabaster theme
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -289,7 +295,7 @@ html_theme_path = [alabaster.get_path()]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-# html_title = None
+html_title = "Kasper Junge"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 # html_short_title = None

@@ -1,8 +1,4 @@
-Here's the corrected version:
-
----
-
-.. post:: Feb 14, 2025  
+.. post:: Feb 16, 2025  
    :tags: Guides  
    :author: Kasper Junge
 
@@ -250,3 +246,12 @@ And that's it!
 I plan to adjust the theme and design of the blog and also set up Google Analytics to track analytics on the blog in the future.  
 When I do that, I will update this post to explain how I did it. For now, I will end it here.  
 I hope you got it to work! If not, feel free to reach out to me.
+
+
+.. Update theme:
+.. 1. uv add pydata-sphinx-theme
+.. 2. add 'html_theme = "pydata_sphinx_theme"' to conf.py
+.. 3. comment out 'github_button' in html_theme_options as it is alabaster specific
+.. 4. comment out navigation.html in html_sidebars, as it is alabaster specific
+.. 5. uncomment at set html_title = "Kasper Junge" in conf.py for not having <blog name> docuemntation in the left conor
+   
