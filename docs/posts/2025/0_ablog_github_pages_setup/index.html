@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>How to Create a Free Blog with Sphinx and ablog Hosted on GitHub Pages &#8212; Kasper Junge  documentation</title>
+    <title>How I Created a Free Blog using Python and GitHub Pages &#8212; Kasper Junge  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/basic.css?v=686e5160" />
     <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=27fed22d" />
@@ -33,8 +33,8 @@
           <div class="body" role="main">
              <p>Here’s the corrected version:</p>
 <p>—</p>
-<section id="how-to-create-a-free-blog-with-sphinx-and-ablog-hosted-on-github-pages">
-<h1>How to Create a Free Blog with Sphinx and ablog Hosted on GitHub Pages<a class="headerlink" href="#how-to-create-a-free-blog-with-sphinx-and-ablog-hosted-on-github-pages" title="Link to this heading">¶</a></h1>
+<section id="how-i-created-a-free-blog-using-python-and-github-pages">
+<h1>How I Created a Free Blog using Python and GitHub Pages<a class="headerlink" href="#how-i-created-a-free-blog-using-python-and-github-pages" title="Link to this heading">¶</a></h1>
 <p><em>This blog post will show you how to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.</em></p>
 <section id="story-skip-if-you-just-want-the-guide">
 <h2>Story (Skip If You Just Want the Guide)<a class="headerlink" href="#story-skip-if-you-just-want-the-guide" title="Link to this heading">¶</a></h2>
@@ -186,38 +186,49 @@ mv<span class="w"> </span>first-post.rst<span class="w"> </span>posts/2025
 <section id="step-4-deploy-your-blog">
 <h2>Step 4: Deploy Your Blog<a class="headerlink" href="#step-4-deploy-your-blog" title="Link to this heading">¶</a></h2>
 <p>To deploy your blog to GitHub Pages, you need to build the blog and push the build files to the repository.</p>
-<p>To do that, execute the following steps:</p>
-<ol class="arabic simple">
-<li><p>Build the blog to a build directory called <cite>docs/</cite> using ablog’s CLI command: <cite>ablog build</cite></p></li>
-<li><p>Commit the repository changes to git.</p></li>
-<li><p>Push the changes to GitHub using ablog’s CLI command: <cite>ablog deploy</cite></p></li>
-</ol>
 <p>I’ve created a short Python script that does all of this for you:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">deploy</span><span class="p">():</span>
 
-   <span class="c1"># Get the path to the build directory</span>
+   <span class="c1"># 1. Get the path to the build directory</span>
    <span class="n">build_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">((</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;docs&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
 
-   <span class="c1"># Build the blog</span>
+   <span class="c1"># 2. Build the blog</span>
    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;uv run ablog build -w docs&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-   <span class="c1"># Commit the blog updates</span>
+   <span class="c1"># 3. Commit the blog updates</span>
    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;git add .&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;git commit -m &quot;update blog&quot;&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-   <span class="c1"># Deploy the blog to GitHub pages</span>
+   <span class="c1"># 4. Deploy the blog to GitHub pages</span>
    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
       <span class="sa">f</span><span class="s2">&quot;uv run ablog deploy --github-branch main -w </span><span class="si">{</span><span class="n">build_path</span><span class="si">}</span><span class="s2"> -g kasperjunge -p </span><span class="si">{</span><span class="n">build_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
       <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
    <span class="p">)</span>
 
+   <span class="c1"># 5. Push the updates to the repository</span>
+   <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;git push&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
    <span class="n">deploy</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Here’s what the script does:</p>
+<ol class="arabic simple">
+<li><p>Gets the path to the build directory.</p></li>
+<li><p>Runs ablog’s CLI command <cite>ablog build</cite> to build the blog. The <cite>-w docs</cite> flag tells ablog to build the blog in a directory named <cite>docs/</cite>.</p></li>
+<li><p>Commits the repository changes to Git.</p></li>
+<li><p>Runs ablog’s CLI command <cite>ablog deploy</cite> to deploy the blog to GitHub Pages. The <cite>–github-branch main</cite> flag tells ablog to deploy to the <cite>main</cite> branch. If not specified, it will try to use <cite>master</cite>. The <cite>-g kasperjunge</cite> flag tells ablog to deploy to the repository <cite>kasperjunge/kasperjunge.github.io</cite>. The <cite>-p docs</cite> flag tells ablog to deploy the <cite>docs/</cite> directory.</p></li>
+<li><p>Pushes the updates to the repository. (Actually, this step should be carried out by the <cite>ablog deploy</cite> command, but it doesn’t always work for me, so I added this step.)</p></li>
+</ol>
+<p>Now you can go to your repository and see that a set of GitHub Actions has been invoked to deploy your blog to GitHub Pages.
+When they’re done, you should be able to see your blog at <cite>https://&lt;username&gt;.github.io</cite>.</p>
+<p>And that’s it!</p>
+<p>I plan to adjust the theme and design of the blog and also set up Google Analytics to track analytics on the blog in the future.
+When I do that, I will update this post to explain how I did it. For now, I will end it here.
+I hope you got it to work! If not, feel free to reach out to me.</p>
 </section>
 </section>
 

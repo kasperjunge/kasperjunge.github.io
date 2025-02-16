@@ -6,7 +6,7 @@ Here's the corrected version:
    :tags: Guides  
    :author: Kasper Junge
 
-How to Create a Free Blog with Sphinx and ablog Hosted on GitHub Pages
+How I Created a Free Blog using Python and GitHub Pages
 =====================================================================
 
 *This blog post will show you how to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.*
@@ -202,12 +202,6 @@ Step 4: Deploy Your Blog
 
 To deploy your blog to GitHub Pages, you need to build the blog and push the build files to the repository.
 
-To do that, execute the following steps:
-
-1. Build the blog to a build directory called `docs/` using ablog's CLI command: `ablog build`
-2. Commit the repository changes to git.
-3. Push the changes to GitHub using ablog's CLI command: `ablog deploy`
-
 I've created a short Python script that does all of this for you:
 
 .. code-block:: python
@@ -217,21 +211,42 @@ I've created a short Python script that does all of this for you:
 
    def deploy():
       
-      # Get the path to the build directory
+      # 1. Get the path to the build directory
       build_path = str((Path(__file__).parent / "docs").resolve())
 
-      # Build the blog
+      # 2. Build the blog
       subprocess.run("uv run ablog build -w docs", shell=True)
 
-      # Commit the blog updates
+      # 3. Commit the blog updates
       subprocess.run("git add .", shell=True)
       subprocess.run('git commit -m "update blog"', shell=True)
 
-      # Deploy the blog to GitHub pages
+      # 4. Deploy the blog to GitHub pages
       subprocess.run(
          f"uv run ablog deploy --github-branch main -w {build_path} -g kasperjunge -p {build_path}",
          shell=True
       )
 
+      # 5. Push the updates to the repository
+      subprocess.run("git push", shell=True)
+
    if __name__ == "__main__":
       deploy()
+
+
+Here's what the script does:
+
+1. Gets the path to the build directory.
+2. Runs ablog's CLI command `ablog build` to build the blog. The `-w docs` flag tells ablog to build the blog in a directory named `docs/`.
+3. Commits the repository changes to Git.
+4. Runs ablog's CLI command `ablog deploy` to deploy the blog to GitHub Pages. The `--github-branch main` flag tells ablog to deploy to the `main` branch. If not specified, it will try to use `master`. The `-g kasperjunge` flag tells ablog to deploy to the repository `kasperjunge/kasperjunge.github.io`. The `-p docs` flag tells ablog to deploy the `docs/` directory.
+5. Pushes the updates to the repository. (Actually, this step should be carried out by the `ablog deploy` command, but it doesn’t always work for me, so I added this step.)
+
+Now you can go to your repository and see that a set of GitHub Actions has been invoked to deploy your blog to GitHub Pages.  
+When they're done, you should be able to see your blog at `https://<username>.github.io`.
+
+And that's it!
+
+I plan to adjust the theme and design of the blog and also set up Google Analytics to track analytics on the blog in the future.  
+When I do that, I will update this post to explain how I did it. For now, I will end it here.  
+I hope you got it to work! If not, feel free to reach out to me.
