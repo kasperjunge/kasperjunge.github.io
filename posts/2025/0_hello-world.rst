@@ -8,6 +8,6 @@
 Hello Ablog World!
 ===================
 
-omg, this is my first blog post on my new ablog hosted on github pages! 
+My first post on my brand new ablog blog 🚀
 
-check my next blog to read how i set this up
+Read me next blog where I will show how I host it for free using Python and GitHub Pages.
