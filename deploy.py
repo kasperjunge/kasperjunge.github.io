@@ -19,5 +19,8 @@ def deploy():
         shell=True
     )
 
+    # Push the updates to the repository
+    subprocess.run("git push", shell=True)
+
 if __name__ == "__main__":
     deploy()

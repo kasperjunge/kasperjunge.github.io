@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>How to create a free blog with Sphinx and ablog hosted on GitHub Pages &#8212; Kasper Junge  documentation</title>
+    <title>How to Create a Free Blog with Sphinx and ablog Hosted on GitHub Pages &#8212; Kasper Junge  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/basic.css?v=686e5160" />
     <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=27fed22d" />
@@ -31,43 +31,45 @@
           
 
           <div class="body" role="main">
-             <section id="how-to-create-a-free-blog-with-sphinx-and-ablog-hosted-on-github-pages">
-<h1>How to create a free blog with Sphinx and ablog hosted on GitHub Pages<a class="headerlink" href="#how-to-create-a-free-blog-with-sphinx-and-ablog-hosted-on-github-pages" title="Link to this heading">¶</a></h1>
-<p><em>This blog post will show you have to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.</em></p>
+             <p>Here’s the corrected version:</p>
+<p>—</p>
+<section id="how-to-create-a-free-blog-with-sphinx-and-ablog-hosted-on-github-pages">
+<h1>How to Create a Free Blog with Sphinx and ablog Hosted on GitHub Pages<a class="headerlink" href="#how-to-create-a-free-blog-with-sphinx-and-ablog-hosted-on-github-pages" title="Link to this heading">¶</a></h1>
+<p><em>This blog post will show you how to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.</em></p>
 <section id="story-skip-if-you-just-want-the-guide">
-<h2>Story (skip if you just want the guide)<a class="headerlink" href="#story-skip-if-you-just-want-the-guide" title="Link to this heading">¶</a></h2>
+<h2>Story (Skip If You Just Want the Guide)<a class="headerlink" href="#story-skip-if-you-just-want-the-guide" title="Link to this heading">¶</a></h2>
 <p>When it comes to blogging, I have always been a wannabe.</p>
-<p>First I got fascinated by Sam Altman’s blogging style. You know, the tech-AI visionary who writes thoughtful posts about the future of technology and society.
-The feel of Sam’s blog is kind of late 00’s minimalist vibe.
-<a class="reference external" href="https://blog.samaltman.com/">Sam’s blog</a> is hosted on Posthaven, which is a paid service for hosting blogs, so also used Posthaven for my blog 🫠</p>
-<p>However, recently I stumbled upon <a class="reference external" href="https://simonwillison.net/">Simon Willison’s blog</a> and got fascinated by his blogging style.
-He’s more of a hacker-builder type, who writes about his projects and the tools he uses.
-The feel of Simon’s blog is more of a early 00’s code docs vibes.
-I have no idea how Simon hosts his blog, but since he is the <a class="reference external" href="https://en.wikipedia.org/wiki/Simon_Willison">co-creator of Django</a>, I assume he built it with that and self-hosts it.</p>
-<p>Totally unrelated to blogging I also recently became interested in writing Python documentation (who doesn’t get excited about that?).
+<p>First, I got fascinated by Sam Altman’s blogging style. You know, the tech-AI visionary who writes thoughtful posts about the future of technology and society.
+The feel of Sam’s blog is reminiscent of the late 00’s minimalist vibe.
+<a class="reference external" href="https://blog.samaltman.com/">Sam’s blog</a> is hosted on Posthaven, which is a paid service for hosting blogs, so I also used Posthaven for my blog 🫠</p>
+<p>However, recently I stumbled upon <a class="reference external" href="https://simonwillison.net/">Simon Willison’s blog</a> and became fascinated by his blogging style.
+He’s more of a hacker-builder type, writing about his projects and the tools he uses.
+The feel of Simon’s blog is more reminiscent of early 00’s code documentation vibes.
+I have no idea how Simon hosts his blog, but since he is the <a class="reference external" href="https://en.wikipedia.org/wiki/Simon_Willison">co-creator of Django</a>, I assume he built it with Django and self-hosts it.</p>
+<p>Totally unrelated to blogging, I also recently became interested in writing Python documentation (who doesn’t get excited about that?).
 I quickly discovered that <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> is the go-to tool for writing Python documentation.
-So I started reading the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">Getting Started guide on the Sphinx website</a>, and there was one line in the intro that I got stuck in my head:</p>
-<p><em>“Sphinx focuses on documentation, in particular handwritten documentation, however, Sphinx can also be used to generate blogs, homepages and even books.”</em></p>
-<p>This was my moment of enlightenment. I could use Sphinx to create a blog that had the early 00’s code docs vibe of my new idol, Simon Willisons blog! 🎉
-This was litterally the reasoning that went through my head about shutting down my Posthaven blog and starting a new one with Sphinx.
-I started doing research of how use sphinx for blogging and quickly found the <a class="reference external" href="https://ablog.readthedocs.io/en/latest/">ablog</a> extension for Sphinx that could be hosted free on GitHub Pages.</p>
-<p>It turned out to be quite tedious to setup. And to be honest, I’m not sure that ablog is the best option at all, but now I’m too deep into it now to turn back 😂
-To help my fellow blog-wannabes out there, I decided to write this guide to help others who want to create a blog with Sphinx and ablog.</p>
+So I started reading the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">Getting Started guide on the Sphinx website</a>, and there was one line in the intro that stuck with me:</p>
+<p><em>“Sphinx focuses on documentation, in particular handwritten documentation; however, Sphinx can also be used to generate blogs, homepages, and even books.”</em></p>
+<p>This was my moment of enlightenment. I could use Sphinx to create a blog that had the early 00’s code documentation vibe of my new idol, Simon Willison’s blog! 🎉
+This was literally the reasoning that went through my head about shutting down my Posthaven blog and starting a new one with Sphinx.
+I started researching how to use Sphinx for blogging and quickly found the <a class="reference external" href="https://ablog.readthedocs.io/en/latest/">ablog</a> extension for Sphinx that could be hosted for free on GitHub Pages.</p>
+<p>It turned out to be quite tedious to set up. And to be honest, I’m not sure that ablog is the best option at all, but now I’m too deep into it to turn back 😂
+To help my fellow bloggers out there who wants a blog that reminds people of a code documentation site (must be a massive audicence), I decided to write this guide to help others who want to create a blog with Sphinx and ablog.</p>
 </section>
-<section id="step-1-create-github-repository-for-your-blog">
-<h2>Step 1: Create GitHub repository for your blog<a class="headerlink" href="#step-1-create-github-repository-for-your-blog" title="Link to this heading">¶</a></h2>
-<p>Create a new repository on GitHub named &lt;username&gt;.github.io. This will be the repository where your blog will be hosted.</p>
-<p>When you have create the repository, clone it to your local machine:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;username&gt;./&lt;username&gt;..github.io.git
+<section id="step-1-create-a-github-repository-for-your-blog">
+<h2>Step 1: Create a GitHub Repository for Your Blog<a class="headerlink" href="#step-1-create-a-github-repository-for-your-blog" title="Link to this heading">¶</a></h2>
+<p>Create a new repository on GitHub named <cite>&lt;username&gt;.github.io</cite>. This will be the repository where your blog will be hosted.</p>
+<p>Once you have created the repository, clone it to your local machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git
 </pre></div>
 </div>
-<p>For this guide to work, you’ll also need to open your repository’s Settings on GitHub, navigate to Pages, and under Build and deployment &gt; Branch, change the build folder from /(root) to /docs.</p>
+<p>For this guide to work, you’ll also need to open your repository’s Settings on GitHub, navigate to Pages, and under <strong>Build and deployment &gt; Branch</strong>, change the build folder from <cite>/</cite> (root) to <cite>/docs</cite>.</p>
 </section>
-<section id="step-2-setup-python-environment-with-uv">
-<h2>Step 2: Setup Python environment with uv<a class="headerlink" href="#step-2-setup-python-environment-with-uv" title="Link to this heading">¶</a></h2>
-<p>Next step is to create a Python environment for your blog.</p>
-<p>We will use uv to manage the environment because it is nice &lt;3.</p>
-<p>Change directory (yes that is why the command is called “cd”) to the repository you just cloned in the previous step and run:</p>
+<section id="step-2-set-up-a-python-environment-with-uv">
+<h2>Step 2: Set Up a Python Environment with uv<a class="headerlink" href="#step-2-set-up-a-python-environment-with-uv" title="Link to this heading">¶</a></h2>
+<p>Next, create a Python environment for your blog.</p>
+<p>We will use <strong>uv</strong> to manage the environment because it is nice &lt;3.</p>
+<p>Change directory (yes, that is why the command is called “cd”) to the repository you just cloned in the previous step and run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>init<span class="w"> </span>.
 </pre></div>
 </div>
@@ -85,7 +87,7 @@ To help my fellow blog-wannabes out there, I decided to write this guide to help
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>ablog
 </pre></div>
 </div>
-<p>Now a virtial environment has been created in the .venv directory and ablog has been installed in it.</p>
+<p>Now a virtual environment has been created in the <cite>.venv</cite> directory and ablog has been installed in it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
 ├──<span class="w"> </span>.git
 ├──<span class="w"> </span>.gitignore
@@ -97,15 +99,15 @@ To help my fellow blog-wannabes out there, I decided to write this guide to help
 └──<span class="w"> </span>uv.lock
 </pre></div>
 </div>
-<p>We wont’t need hello.py, so let’s remove it:</p>
+<p>We won’t need <cite>hello.py</cite>, so let’s remove it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>hello.py
 </pre></div>
 </div>
 </section>
-<section id="step-3-setup-ablog">
-<h2>Step 3: Setup ablog<a class="headerlink" href="#step-3-setup-ablog" title="Link to this heading">¶</a></h2>
-<p>Now that we have a Python environment with ablog installed, we can setup ablog.</p>
-<p>Run the following command to setup ablog:</p>
+<section id="step-3-set-up-ablog">
+<h2>Step 3: Set Up ablog<a class="headerlink" href="#step-3-set-up-ablog" title="Link to this heading">¶</a></h2>
+<p>Now that we have a Python environment with ablog installed, we can set up ablog.</p>
+<p>Run the following command to set up ablog:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ablog<span class="w"> </span>start
 </pre></div>
 </div>
@@ -119,8 +121,8 @@ To help my fellow blog-wannabes out there, I decided to write this guide to help
 <span class="go">&gt; Base URL for your project:</span>
 </pre></div>
 </div>
-<p>Note that I inserted no base URL for the project.</p>
-<p>Now we have a some new files and directories in the project:</p>
+<p>Note that I left the base URL for the project blank.</p>
+<p>Now we have some new files and directories in the project:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
 ├──<span class="w"> </span>.git
 ├──<span class="w"> </span>.gitignore
@@ -137,14 +139,14 @@ To help my fellow blog-wannabes out there, I decided to write this guide to help
 └──<span class="w"> </span>uv.lock
 </pre></div>
 </div>
-<p>The .rst files are reStructuredText files, which is the markup language used by ablog, which you will quickly get used to.</p>
+<p>The <cite>.rst</cite> files are reStructuredText files, which is the markup language used by ablog, and you will quickly get used to it.</p>
 <p>Here’s a quick overview of the files:</p>
 <ul class="simple">
-<li><p><strong>index.rst</strong> : index page for your blog, like index.html on websites I guess</p></li>
-<li><p><strong>about.rst</strong> : you guessed it, an example about page</p></li>
-<li><p><strong>first-post.rst</strong> : example blog post, which you can edit to be your first blog post 🎉</p></li>
-<li><p><strong>conf.py</strong> : configuration file for sphinx and ablog</p></li>
-<li><p><strong>_static/ and _templates/</strong> : directories for static files and templates that sphinx/ablog uses</p></li>
+<li><p><strong>index.rst</strong>: The index page for your blog, similar to index.html on websites, I guess.</p></li>
+<li><p><strong>about.rst</strong>: An example about page.</p></li>
+<li><p><strong>first-post.rst</strong>: An example blog post, which you can edit to become your first blog post 🎉.</p></li>
+<li><p><strong>conf.py</strong>: The configuration file for Sphinx and ablog.</p></li>
+<li><p><strong>_static/</strong> and <strong>_templates/</strong>: Directories for static files and templates that Sphinx/ablog uses.</p></li>
 </ul>
 <p>Your first auto-generated example blog post is going to look something like this:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="c">.. Kasper Junge post example, created by `ablog start` on Feb 14, 2025.</span>
@@ -157,7 +159,7 @@ To help my fellow blog-wannabes out there, I decided to write this guide to help
 <span class="gh">==========</span>
 
 World, hello again! This very first paragraph of the post will be used
-as excerpt in archives and feeds. Find out how to control how much is shown
+as an excerpt in archives and feeds. Find out how to control how much is shown
 in `Post Excerpts and Images
 <span class="nt">&lt;https://ablog.readthedocs.io/manual/post-excerpts-and-images/&gt;</span>`__. Remember
 that you can refer to posts by file name, e.g. <span class="s">``:ref:`first-post```</span> results
@@ -165,16 +167,16 @@ in <span class="na">:ref:</span><span class="nv">`first-post`</span>. Find out m
 <span class="nt">&lt;https://ablog.readthedocs.io/manual/cross-referencing-blog-pages/&gt;</span>`__.
 </pre></div>
 </div>
-<p>As far as I understood, ablog will automatically pick up any .rst files with the post directive (the “..post::”” thing) and add them to the blog.
-Thus, it should not matter too much where the blog posts are kept, but for keeping things organized, I like to move the first-post.rst file to a posts directory and create a 2025 directory in it:</p>
+<p>As far as I understand, ablog will automatically pick up any <cite>.rst</cite> files with the post directive (the “.. post::” thing) and add them to the blog.
+Thus, it should not matter too much where the blog posts are kept, but to keep things organized, I like to move the <cite>first-post.rst</cite> file to a <cite>posts</cite> directory and create a <cite>2025</cite> directory in it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>posts
 mkdir<span class="w"> </span>posts/2025
 mv<span class="w"> </span>first-post.rst<span class="w"> </span>posts/2025
 </pre></div>
 </div>
-<p>Now we’re almost ready for deploying our blog to GitHub Pages, but before we do that, we need one last thing.</p>
-<p>Since we have our .venv/ directory in the project we need to add some files to the exclude_patterns in the conf.py file to avoid sphinx interpreting the files in the .venv/ directory as blog post material.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span>
+<p>Now we’re almost ready to deploy our blog to GitHub Pages, but before we do that, we need one last thing.</p>
+<p>Since we have our <cite>.venv/</cite> directory in the project, we need to add some files to the <cite>exclude_patterns</cite> in the <cite>conf.py</cite> file to avoid Sphinx interpreting the files in the <cite>.venv/</cite> directory as blog post material.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span>
    <span class="s1">&#39;**/site-packages/**&#39;</span><span class="p">,</span>
    <span class="s1">&#39;**/*.dist-info/**&#39;</span><span class="p">,</span>
 <span class="p">]</span>
@@ -182,14 +184,40 @@ mv<span class="w"> </span>first-post.rst<span class="w"> </span>posts/2025
 </div>
 </section>
 <section id="step-4-deploy-your-blog">
-<h2>Step 4: Deploy your blog<a class="headerlink" href="#step-4-deploy-your-blog" title="Link to this heading">¶</a></h2>
+<h2>Step 4: Deploy Your Blog<a class="headerlink" href="#step-4-deploy-your-blog" title="Link to this heading">¶</a></h2>
 <p>To deploy your blog to GitHub Pages, you need to build the blog and push the build files to the repository.</p>
-<p>To do that we have to execute the following steps:</p>
+<p>To do that, execute the following steps:</p>
 <ol class="arabic simple">
-<li><p>Build the blog to a build directory called “docs/”” using ablogs CLI command: ablog build</p></li>
-<li><p>Commit the repository changes to git</p></li>
-<li><p>Push the changes to GitHub using ablogs CLI command: ablog deploy</p></li>
+<li><p>Build the blog to a build directory called <cite>docs/</cite> using ablog’s CLI command: <cite>ablog build</cite></p></li>
+<li><p>Commit the repository changes to git.</p></li>
+<li><p>Push the changes to GitHub using ablog’s CLI command: <cite>ablog deploy</cite></p></li>
 </ol>
+<p>I’ve created a short Python script that does all of this for you:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">deploy</span><span class="p">():</span>
+
+   <span class="c1"># Get the path to the build directory</span>
+   <span class="n">build_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">((</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;docs&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+
+   <span class="c1"># Build the blog</span>
+   <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;uv run ablog build -w docs&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+   <span class="c1"># Commit the blog updates</span>
+   <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;git add .&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+   <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;git commit -m &quot;update blog&quot;&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+   <span class="c1"># Deploy the blog to GitHub pages</span>
+   <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+      <span class="sa">f</span><span class="s2">&quot;uv run ablog deploy --github-branch main -w </span><span class="si">{</span><span class="n">build_path</span><span class="si">}</span><span class="s2"> -g kasperjunge -p </span><span class="si">{</span><span class="n">build_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+      <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
+   <span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+   <span class="n">deploy</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 </section>
 
