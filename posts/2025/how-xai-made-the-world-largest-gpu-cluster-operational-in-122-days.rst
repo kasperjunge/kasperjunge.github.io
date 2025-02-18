@@ -1,5 +1,5 @@
 .. post:: Feb 18, 2025  
-   :tags: Guides  
+   :tags: xAI, Elon Musk, Inspiration
    :author: Kasper Junge
 
 How xAI made the world largest GPU cluster operational in 122 days

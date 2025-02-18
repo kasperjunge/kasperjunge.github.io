@@ -263,3 +263,6 @@ Find the repository for this blog post here: https://github.com/kasperjunge/kasp
 .. Domain setup
 .. Domain on cloudflare. Make CNAME to Name: blog with Content:kasperjunge.github.io
 .. In GitHub Pages settings, add the custom domain blog.kasperjunge.com
+
+.. Google Analytics
+.. https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/analytics.html
