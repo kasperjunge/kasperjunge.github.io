@@ -287,16 +287,14 @@ html_theme = "pydata_sphinx_theme"
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    # 'github_button': False, # valid for alabaster theme
+
 }
 
 html_theme_options["analytics"] = {
     "google_analytics_id": "G-3CEVPVH0T7",
 }
 
-html_theme_options = {
-    "footer_items": [],
-}
+
 
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -384,4 +382,5 @@ html_static_path = ["_static"]
 htmlhelp_basename = "KasperJungedoc"
 
 
+html_show_sphinx = False
 
