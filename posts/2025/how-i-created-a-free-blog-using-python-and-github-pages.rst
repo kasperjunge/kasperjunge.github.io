@@ -259,3 +259,7 @@ Find the repository for this blog post here: https://github.com/kasperjunge/kasp
 .. 4. comment out navigation.html in html_sidebars, as it is alabaster specific
 .. 5. uncomment at set html_title = "Kasper Junge" in conf.py for not having <blog name> docuemntation in the left conor
    
+
+.. Domain setup
+.. Domain on cloudflare. Make CNAME to Name: blog with Content:kasperjunge.github.io
+.. In GitHub Pages settings, add the custom domain blog.kasperjunge.com
