@@ -1,5 +1,5 @@
 .. post:: Feb 16, 2025  
-   :tags: Guides  
+   :tags: Tutorial, Sphinx, GitHub Pages  
    :author: Kasper Junge
 
 How I created a free blog using Python and GitHub Pages
