@@ -294,6 +294,11 @@ html_theme_options["analytics"] = {
     "google_analytics_id": "G-3CEVPVH0T7",
 }
 
+html_theme_options = {
+    "footer_items": [],
+}
+
+
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = [alabaster.get_path()]
 
