@@ -290,6 +290,10 @@ html_theme_options = {
     # 'github_button': False, # valid for alabaster theme
 }
 
+html_theme_options["analytics"] = {
+    "google_analytics_id": "G-3CEVPVH0T7",
+}
+
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = [alabaster.get_path()]
 
