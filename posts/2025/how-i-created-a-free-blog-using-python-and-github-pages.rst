@@ -2,7 +2,7 @@
    :tags: Guides  
    :author: Kasper Junge
 
-How to create a free blog using Python and GitHub Pages
+How I created a free blog using Python and GitHub Pages
 =====================================================================
 
 *This blog post will show you how to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.*

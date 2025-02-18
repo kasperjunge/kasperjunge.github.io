@@ -1,0 +1,9 @@
+.. post:: Feb 18, 2025  
+   :tags: Guides  
+   :author: Kasper Junge
+
+How xAI made the world largest GPU cluster in the world operational in 122 days
+======================================================================================
+
+In `the Grok 3 launch video at 1:00:05 <https://x.com/xai/status/1891699715298730482>`_, Elon Musks breaks down how xAI was able to make the worlds largest GPU cluster operational in 122 days
+
