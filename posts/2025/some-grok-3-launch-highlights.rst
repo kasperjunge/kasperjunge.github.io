@@ -2,12 +2,10 @@
    :tags: Grok 3, xAI
    :author: Kasper Junge
 
-Grok 3 Launch Highlights
+Some Grok 3 Launch Highlights
 ========================
 
 A couple of days ago `xAI launched Grok 3 on X <https://x.com/xai/status/1891699715298730482>`_. I wanted to create a short overview for myself of some highlights from the model launch, and I thought I would share it with you as well.
-
-
 
 Model
 -----
