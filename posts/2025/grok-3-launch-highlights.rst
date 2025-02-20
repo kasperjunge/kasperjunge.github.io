@@ -19,7 +19,7 @@ Model
 
 Infrastructure
 --------------
-- It took 122 days to get the first 100,000 GPU data center named "Colossus" operational.
+- It took 122 days to get the 100,000 GPU data center named "Colossus" operational.
 - The cluster "Colossus" is described as the biggest coherently connected H100 cluster of its kind.
 - The data center is housed in an abandoned Electrolux factory in Memphis.
 - GPUs are liquid cooled, requiring extensive plumbing and specialized engineering to achieve the needed density.
