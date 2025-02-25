@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Things I’ve learned after 2 years of using LLMs for coding &#8212; Kasper Junge</title>
+    <title>Things I Learned in My First Year as a Lead AI Engineer &#8212; Kasper Junge</title>
   
   
   
@@ -54,7 +54,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-3CEVPVH0T7');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'posts/2025/my_ai_programming_workflow';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'posts/2025/things-i-learned-in-my-first-year-as-a-lead-ai-engineer';</script>
     <link rel="author" title="About these documents" href="../../../about/" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
@@ -251,10 +251,10 @@
    
   <h2>
      
-    <i class="fa fa-calendar"></i>
-    
-    <span>21 February 2025</span>
-    
+    <i class="fa fa-pencil"></i>
+     
+    <span>Draft</span>
+     
   </h2>
   <ul>
     <div class="ablog-sidebar-item ablog__postcard2">
@@ -304,6 +304,18 @@
       </a>
     </li>
     
+    <li>
+      <a href="../2023/text-classifiers-are-an-underrated-use-case-of-llms/">
+        12 September - Text Classifiers are an Underrated Application of LLMs
+      </a>
+    </li>
+    
+    <li>
+      <a href="../2023/a-process-for-building-llm-classifiers/">
+        17 August - A Process for Building LLM Classifiers
+      </a>
+    </li>
+    
   </ul>
 </div>
 </div>
@@ -344,7 +356,11 @@
   <ul>
      
     <li>
-      <a href="../../../blog/2025/">2025 (3)</a>
+      <a href="../../../blog/2025/">2025 (2)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2023/">2023 (2)</a>
     </li>
      
   </ul>
@@ -397,7 +413,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><strong>Things I’ve learned after 2 years of using LLMs for coding</strong></span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><strong>Things I Learned in My First Year as a Lead AI Engineer</strong></span></li>
   </ul>
 </nav>
 </div>
@@ -413,68 +429,21 @@
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
-                   <section id="things-i-ve-learned-after-2-years-of-using-llms-for-coding">
-<h1><strong>Things I’ve learned after 2 years of using LLMs for coding</strong><a class="headerlink" href="#things-i-ve-learned-after-2-years-of-using-llms-for-coding" title="Link to this heading">#</a></h1>
-<p>Since the release of ChatGPT, I’ve been using AI chatbots a lot for coding.</p>
-<p>I’ve been experiencing that adictive adreneline kick of suddenly being able crank code out at a much faster pace that I could ever imagine.</p>
-<p>However the exact same feeling have also seduced med into writing a ton of code that I had no idea how worked and I had to watch it burn in flames when the whole thing collapsed and I had no idea how to fix it, because I had been coding beyond my ability.</p>
-<p>In the past two years I’ve been generating a ton output from AI chatbots, good and bad, and I’ve spent a lot of time trying to understand and trace back what causes a good and a bad output.</p>
-<p>Many are of the opinion that the idea that programmers can be more productive wiht AI chatbots is an illusion.
-With the journey I’ve been on, I can say that it is not an illusion, but I understand where they are coming from.</p>
-<p>Because it can be very tempting for people to write a lot of super poor code that either yourself of others have to clean up afterwards.</p>
-<p>First of all I think that AI as a tool for coding is an unavoidable part of the future, so wether you like it or not, you will have to get used to it.
-Because if you’re not becoming used to it, you will at least have to deal with people around you that are using it.</p>
-<p>What I think is needed is cultivation of a culture where people are using AI in a responsible and sustainable way and in this blog post I will honestly share some of the things i’ve learned in the 2 years i’ve been using ai for coding.</p>
-<section id="productivity-mode-vs-learning-mode">
-<h2><strong>Productivity-mode vs. Learning-mode</strong><a class="headerlink" href="#productivity-mode-vs-learning-mode" title="Link to this heading">#</a></h2>
-<p>When you know what you’re doing, use AI to crank code out as fast as you possibly can.
-When you have no idea what you’re doing, slow down and use the AI as a super efficient learning tool ot properly understand what the thing you are trying to do.</p>
-<p>The way I learned this was from really pushing the limits of what I could build with AI in programming languages, technologies and libraries I didn’t fully understand.</p>
-<p>It is easy to get carried away by the adrenaline kick of producing A LOT of code fast, but it is unsustainable as you will hit a point where you are drowning in code you don’t understand and don’t know how to fix when it breaks.
-That feeling can easily overshadow the fact that AI chatbots are an amazing learning tool, that will 10x, if not 100x, your learning.</p>
-<p>Slowing down to really understand something has always been a great investment and still is.</p>
-<p>So the control flow of you AI chatbot usage for code should be:</p>
-<blockquote>
-<div><dl class="simple">
-<dt>if you know what you’re doing:</dt><dd><p>use AI to crank out code as fast as you can</p>
-</dd>
-<dt>else:</dt><dd><p>slow down and use AI as a super efficient learning tool</p>
-</dd>
-</dl>
-</div></blockquote>
-</section>
-<section id="the-three-components-of-getting-good-results-from-ai-chatbots">
-<h2><strong>The three components of getting good results from AI chatbots</strong><a class="headerlink" href="#the-three-components-of-getting-good-results-from-ai-chatbots" title="Link to this heading">#</a></h2>
-<p>Everytime I get unsatisfactory results from an AI chatbot, it can always be traced back to one of these three components:</p>
+                   <section id="things-i-learned-in-my-first-year-as-a-lead-ai-engineer">
+<h1><strong>Things I Learned in My First Year as a Lead AI Engineer</strong><a class="headerlink" href="#things-i-learned-in-my-first-year-as-a-lead-ai-engineer" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
-<li><p>Instruction</p></li>
-<li><p>Context</p></li>
-<li><p>Model capability</p></li>
+<li><p>Learn to get comfortable with the uncomfortable situations. Some times they’re nessesary.</p></li>
+<li><p>The difference between old school AI and LLMs</p></li>
+<li><p>The org has to be setup for success</p></li>
+<li><p>Cross functional teams are gold</p></li>
+<li><p>Don’t take things personally</p></li>
+<li><p>Facilitation is a big part of leadership</p></li>
+<li><p>Energy</p></li>
 </ol>
-<p><strong>Instruction</strong>
-One of the main reasnons I get a bad output from an AI chatbot is related to the instruction I gave it.</p>
-</section>
 </section>
 
 <div class="section ablog__blog_comments">
-     
-<div class="section ablog__prev-next">
-  <span class="ablog__prev">
-     
-    <a href="../how-i-created-a-free-blog-using-python-and-github-pages/">
-      
-      <i class="fa fa-arrow-circle-left"></i>
-      
-      <span>How I created a free blog using Python and GitHub Pages</span>
-    </a>
-    
-  </span>
-  <span class="ablog__spacer">&nbsp;</span>
-  <span class="ablog__next">
-    
-  </span>
-</div>
-  
+       
 </div>
 
                 </article>
@@ -498,23 +467,10 @@ One of the main reasnons I get a bad output from an AI chatbot is related to the
 
 
   <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#productivity-mode-vs-learning-mode"><strong>Productivity-mode vs. Learning-mode</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-components-of-getting-good-results-from-ai-chatbots"><strong>The three components of getting good results from AI chatbots</strong></a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../../_sources/posts/2025/my_ai_programming_workflow.rst.txt"
+      <li><a href="../../../_sources/posts/2025/things-i-learned-in-my-first-year-as-a-lead-ai-engineer.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

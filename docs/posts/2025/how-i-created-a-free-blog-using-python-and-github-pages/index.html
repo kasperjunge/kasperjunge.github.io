@@ -302,6 +302,18 @@
       </a>
     </li>
     
+    <li>
+      <a href="../2023/text-classifiers-are-an-underrated-use-case-of-llms/">
+        12 September - Text Classifiers are an Underrated Application of LLMs
+      </a>
+    </li>
+    
+    <li>
+      <a href="../2023/a-process-for-building-llm-classifiers/">
+        17 August - A Process for Building LLM Classifiers
+      </a>
+    </li>
+    
   </ul>
 </div>
 </div>
@@ -315,19 +327,19 @@
   <h3><a href="../../../blog/tag/">Tags</a></h3>
   <ul class="ablog-cloud">
      
-    <li class="ablog-cloud ablog-cloud-3">
+    <li class="ablog-cloud ablog-cloud-5">
       <a href="../../../blog/tag//"></a>
     </li>
       
-    <li class="ablog-cloud ablog-cloud-3">
+    <li class="ablog-cloud ablog-cloud-1">
       <a href="../../../blog/tag/github-pages/">GitHub Pages</a>
     </li>
       
-    <li class="ablog-cloud ablog-cloud-3">
+    <li class="ablog-cloud ablog-cloud-1">
       <a href="../../../blog/tag/sphinx/">Sphinx</a>
     </li>
       
-    <li class="ablog-cloud ablog-cloud-3">
+    <li class="ablog-cloud ablog-cloud-1">
       <a href="../../../blog/tag/tutorial/">Tutorial</a>
     </li>
      
@@ -343,6 +355,10 @@
      
     <li>
       <a href="../../../blog/2025/">2025 (2)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2023/">2023 (2)</a>
     </li>
      
   </ul>
@@ -395,7 +411,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How I created a free blog using Python and GitHub Pages</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><strong>How I created a free blog using Python and GitHub Pages</strong></span></li>
   </ul>
 </nav>
 </div>
@@ -412,10 +428,10 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                    <section id="how-i-created-a-free-blog-using-python-and-github-pages">
-<h1>How I created a free blog using Python and GitHub Pages<a class="headerlink" href="#how-i-created-a-free-blog-using-python-and-github-pages" title="Link to this heading">#</a></h1>
+<h1><strong>How I created a free blog using Python and GitHub Pages</strong><a class="headerlink" href="#how-i-created-a-free-blog-using-python-and-github-pages" title="Link to this heading">#</a></h1>
 <p><em>This blog post will show you how to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.</em></p>
 <section id="story-skip-if-you-just-want-the-guide">
-<h2>Story (Skip If You Just Want the Guide)<a class="headerlink" href="#story-skip-if-you-just-want-the-guide" title="Link to this heading">#</a></h2>
+<h2><strong>Story (Skip If You Just Want the Guide)</strong><a class="headerlink" href="#story-skip-if-you-just-want-the-guide" title="Link to this heading">#</a></h2>
 <p>When it comes to blogging, I have always been a wannabe.</p>
 <p>First, I got fascinated by Sam Altman’s blogging style. You know, the tech-AI visionary who writes thoughtful posts about the future of technology and society.
 The feel of Sam’s blog is reminiscent of the late 00’s minimalist vibe.
@@ -435,7 +451,7 @@ I started researching how to use Sphinx for blogging and quickly found the <a cl
 To help my fellow bloggers out there who wants a blog that reminds people of a code documentation site (must be a massive audicence), I decided to write this guide to help others who want to create a blog with Sphinx and ablog.</p>
 </section>
 <section id="step-1-create-a-github-repository-for-your-blog">
-<h2>Step 1: Create a GitHub Repository for Your Blog<a class="headerlink" href="#step-1-create-a-github-repository-for-your-blog" title="Link to this heading">#</a></h2>
+<h2><strong>Step 1: Create a GitHub Repository for Your Blog</strong><a class="headerlink" href="#step-1-create-a-github-repository-for-your-blog" title="Link to this heading">#</a></h2>
 <p>Create a new repository on GitHub named <cite>&lt;username&gt;.github.io</cite>. This will be the repository where your blog will be hosted.</p>
 <p>Once you have created the repository, clone it to your local machine:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git
@@ -444,7 +460,7 @@ To help my fellow bloggers out there who wants a blog that reminds people of a c
 <p>For this guide to work, you’ll also need to open your repository’s Settings on GitHub, navigate to Pages, and under <strong>Build and deployment &gt; Branch</strong>, change the build folder from <cite>/</cite> (root) to <cite>/docs</cite>.</p>
 </section>
 <section id="step-2-set-up-a-python-environment-with-uv">
-<h2>Step 2: Set Up a Python Environment with uv<a class="headerlink" href="#step-2-set-up-a-python-environment-with-uv" title="Link to this heading">#</a></h2>
+<h2><strong>Step 2: Set Up a Python Environment with uv</strong><a class="headerlink" href="#step-2-set-up-a-python-environment-with-uv" title="Link to this heading">#</a></h2>
 <p>Next, create a Python environment for your blog.</p>
 <p>We will use <strong>uv</strong> to manage the environment because it is nice &lt;3.</p>
 <p>Change directory (yes, that is why the command is called “cd”) to the repository you just cloned in the previous step and run:</p>
@@ -483,7 +499,7 @@ To help my fellow bloggers out there who wants a blog that reminds people of a c
 </div>
 </section>
 <section id="step-3-set-up-ablog">
-<h2>Step 3: Set Up ablog<a class="headerlink" href="#step-3-set-up-ablog" title="Link to this heading">#</a></h2>
+<h2><strong>Step 3: Set Up ablog</strong><a class="headerlink" href="#step-3-set-up-ablog" title="Link to this heading">#</a></h2>
 <p>Now that we have a Python environment with ablog installed, we can set up ablog.</p>
 <p>Run the following command to set up ablog:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ablog<span class="w"> </span>start
@@ -562,7 +578,7 @@ mv<span class="w"> </span>first-post.rst<span class="w"> </span>posts/2025
 </div>
 </section>
 <section id="step-4-deploy-your-blog">
-<h2>Step 4: Deploy Your Blog<a class="headerlink" href="#step-4-deploy-your-blog" title="Link to this heading">#</a></h2>
+<h2><strong>Step 4: Deploy Your Blog</strong><a class="headerlink" href="#step-4-deploy-your-blog" title="Link to this heading">#</a></h2>
 <p>To deploy your blog to GitHub Pages, you need to build the blog and push the build files to the repository.</p>
 <p>I’ve created a short Python script that does all of this for you:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
@@ -660,11 +676,11 @@ Find the repository for this blog post here: <a class="github reference external
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#story-skip-if-you-just-want-the-guide">Story (Skip If You Just Want the Guide)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-a-github-repository-for-your-blog">Step 1: Create a GitHub Repository for Your Blog</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-set-up-a-python-environment-with-uv">Step 2: Set Up a Python Environment with uv</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-ablog">Step 3: Set Up ablog</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-deploy-your-blog">Step 4: Deploy Your Blog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#story-skip-if-you-just-want-the-guide"><strong>Story (Skip If You Just Want the Guide)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-a-github-repository-for-your-blog"><strong>Step 1: Create a GitHub Repository for Your Blog</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-set-up-a-python-environment-with-uv"><strong>Step 2: Set Up a Python Environment with uv</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-ablog"><strong>Step 3: Set Up ablog</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-deploy-your-blog"><strong>Step 4: Deploy Your Blog</strong></a></li>
 </ul>
   </nav></div>
 

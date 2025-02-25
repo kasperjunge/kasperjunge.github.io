@@ -2,13 +2,13 @@
    :tags: Tutorial, Sphinx, GitHub Pages  
    :author: Kasper Junge
 
-How I created a free blog using Python and GitHub Pages
+**How I created a free blog using Python and GitHub Pages**
 =====================================================================
 
 *This blog post will show you how to create a free blog hosted on GitHub Pages using the Python documentation generator Sphinx and the ablog extension.*
 
-Story (Skip If You Just Want the Guide)
------------------------------------------
+**Story (Skip If You Just Want the Guide)**
+-------------------------------------------
 
 When it comes to blogging, I have always been a wannabe.
 
@@ -34,8 +34,8 @@ I started researching how to use Sphinx for blogging and quickly found the `ablo
 It turned out to be quite tedious to set up. And to be honest, I'm not sure that ablog is the best option at all, but now I'm too deep into it to turn back 😂  
 To help my fellow bloggers out there who wants a blog that reminds people of a code documentation site (must be a massive audicence), I decided to write this guide to help others who want to create a blog with Sphinx and ablog.
 
-Step 1: Create a GitHub Repository for Your Blog
--------------------------------------------------
+**Step 1: Create a GitHub Repository for Your Blog**
+----------------------------------------------------
 
 Create a new repository on GitHub named `<username>.github.io`. This will be the repository where your blog will be hosted.
 
@@ -47,8 +47,8 @@ Once you have created the repository, clone it to your local machine:
 
 For this guide to work, you’ll also need to open your repository’s Settings on GitHub, navigate to Pages, and under **Build and deployment > Branch**, change the build folder from `/` (root) to `/docs`.
 
-Step 2: Set Up a Python Environment with uv
---------------------------------------------
+**Step 2: Set Up a Python Environment with uv**
+-----------------------------------------------
 
 Next, create a Python environment for your blog.
 
@@ -98,8 +98,8 @@ We won't need `hello.py`, so let's remove it:
     
    rm hello.py
 
-Step 3: Set Up ablog
---------------------
+**Step 3: Set Up ablog**
+------------------------
 
 Now that we have a Python environment with ablog installed, we can set up ablog.
 
@@ -193,8 +193,8 @@ Since we have our `.venv/` directory in the project, we need to add some files t
       '**/*.dist-info/**',
    ]
 
-Step 4: Deploy Your Blog
-------------------------
+**Step 4: Deploy Your Blog**
+----------------------------
 
 To deploy your blog to GitHub Pages, you need to build the blog and push the build files to the repository.
 
