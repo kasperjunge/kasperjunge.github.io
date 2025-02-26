@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Things I Learned in My First Year as a Lead AI Engineer &#8212; Kasper Junge</title>
+    <title>Investigating the DeepSeek DeepGEMM Release &#8212; Kasper Junge</title>
   
   
   
@@ -54,7 +54,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-3CEVPVH0T7');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'posts/2025/things-i-learned-in-my-first-year-as-a-lead-ai-engineer';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'posts/2025/deepgemm';</script>
     <link rel="author" title="About these documents" href="../../../about/" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
@@ -251,10 +251,10 @@
    
   <h2>
      
-    <i class="fa fa-pencil"></i>
-     
-    <span>Draft</span>
-     
+    <i class="fa fa-calendar"></i>
+    
+    <span>26 February 2025</span>
+    
   </h2>
   <ul>
     <div class="ablog-sidebar-item ablog__postcard2">
@@ -293,12 +293,6 @@
   <ul>
      
     <li>
-      <a href="../deepgemm/">
-        26 February - Investigating the DeepSeek DeepGEMM Release
-      </a>
-    </li>
-    
-    <li>
       <a href="../how-i-code-with-ai/">
         26 February - How I Code With AI
       </a>
@@ -319,6 +313,12 @@
     <li>
       <a href="../../../text-classifiers-are-an-underrated-use-case-of-llms/">
         12 September - Text Classifiers are an Underrated Application of LLMs
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../../a-process-for-building-llm-classifiers/">
+        17 August - A Process for Building LLM Classifiers
       </a>
     </li>
     
@@ -419,7 +419,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><strong>Things I Learned in My First Year as a Lead AI Engineer</strong></span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Investigating the DeepSeek DeepGEMM Release</span></li>
   </ul>
 </nav>
 </div>
@@ -435,21 +435,97 @@
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
-                   <section id="things-i-learned-in-my-first-year-as-a-lead-ai-engineer">
-<h1><strong>Things I Learned in My First Year as a Lead AI Engineer</strong><a class="headerlink" href="#things-i-learned-in-my-first-year-as-a-lead-ai-engineer" title="Link to this heading">#</a></h1>
+                   <section id="investigating-the-deepseek-deepgemm-release">
+<h1>Investigating the DeepSeek DeepGEMM Release<a class="headerlink" href="#investigating-the-deepseek-deepgemm-release" title="Link to this heading">#</a></h1>
+<p>DeepSeek just released <a class="reference external" href="https://github.com/deepseek-ai/DeepGEMM">DeepGEMM</a>, as the third release in their <a class="reference external" href="https://github.com/deepseek-ai/open-infra-index">Open-Sourcing 5 AI Repos in 5 Days</a> series.</p>
+<p>I’m no LLM infra engineer, so I am probably not the primary audience for this release.</p>
+<p>Also, I can’t claim that I would fully understand what was going on under the hood in DeepGEMM if I read the code. At the very least, it would take me quite some time.</p>
+<p>But I’m curious. So I thought I would write a short blog post where I share my understanding of what DeepGEMM is and what it can be used for.</p>
+<p>In this blog post, I will go through the repo, read the comments on the <a class="reference external" href="https://news.ycombinator.com/item?id=43179478">Hacker News post of the release</a>, and write about what I learn.</p>
+<section id="programming-languages-used">
+<h2>Programming Languages Used<a class="headerlink" href="#programming-languages-used" title="Link to this heading">#</a></h2>
+<p>By looking at the DeepGEMM repository on GitHub, the first thing I notice is that the code is written in 58.9% CUDA and 41.1% Python.</p>
+<p>This tells me that the content of this code likely consists of CUDA kernels that optimize some of the calculations executed when running LLM training and inference. (It’s fine, just call me a genius.)</p>
+<p>The fact that almost half of the code is Python could indicate that the optimized CUDA kernels are made available as Python bindings through a deep learning framework like PyTorch.</p>
+</section>
+<section id="the-readme">
+<h2>The README<a class="headerlink" href="#the-readme" title="Link to this heading">#</a></h2>
+<p>Surprisingly, the README file contains a lot of information about the project.</p>
+<p>It states that DeepGEMM is:</p>
+<blockquote>
+<div><p><em>a library designed for clean and efficient FP8 General Matrix Multiplications (GEMMs) with fine-grained scaling, as proposed in DeepSeek-V3.</em></p>
+</div></blockquote>
+<p>FP8 is an 8-bit floating point format, which I suppose is used to represent model weights in order to reduce the memory footprint of the model and thus speed up training and inference.</p>
+<p>General Matrix Multiplications (GEMMs) is a term I’ve never heard before. However, after some research, I quickly learned that this is basically just the operation of multiplying two matrices to produce a third matrix—an operation heavily used when training and running deep learning models.</p>
+<p>Then, it is mentioned that the library provides <em>fine-grained scaling</em>.
+After some research, it seems that this has to do with managing numerical underflow/overflow when working with such low precision.
+The reason it is called fine-grained is that it does not use a single global scaling factor for the entire matrix but instead applies different scaling factors to different sections of the matrix to ensure numerical stability.
+So one of the big problems it solves is keeping matrix multiplications numerically stable with a precision as low as FP8.</p>
+<p>One thing I’m curious about now is whether this is a new concept or if it has been around for a while.</p>
+</section>
+<section id="terms-that-i-don-t-know-and-or-understand">
+<h2>Terms That I Don’t Know and/or Understand<a class="headerlink" href="#terms-that-i-don-t-know-and-or-understand" title="Link to this heading">#</a></h2>
+<p>In the README, there were many terms I either didn’t know or didn’t fully understand.</p>
+<p>The first was <a class="reference external" href="https://github.com/nvidia/cutlass">CUTLASS</a>, which appears to be an abbreviation for <em>CUDA Templates for Linear Algebra Subroutines and Solvers</em>.
+It is a library developed by NVIDIA that provides high-performance matrix-multiplication code optimized for NVIDIA GPUs.
+DeepGEMM takes inspiration from CUTLASS but is simpler. DeepGEMM seems to differentiate from CUTLASS by providing support for FP8 precision.</p>
+<p>The second term I didn’t know was <a class="reference external" href="https://github.com/NVIDIA/cutlass/tree/main/include/cute">CuTe</a>, which, like CUTLASS, is a library that provides CUDA templates. (I’m not entirely sure what is meant by templates in a CUDA context.)</p>
+<p>The DeepSeek engineers give credit to both the CUTLASS and the CuTe library in the README and mention that DeepGEMM took inspiration from it.</p>
+</section>
+<section id="hacker-news-comments">
+<h2>Hacker News Comments<a class="headerlink" href="#hacker-news-comments" title="Link to this heading">#</a></h2>
+<p>To be honest, the comments on the Hacker News post of the release was way above my knowledge of GPU programming.
+However, I summarized the top 20 points from the comments with ChatGPT and to me it was super interesting to read.
+So here at the end, I will be super lazy and just paste the key points from the comments:</p>
 <ol class="arabic simple">
-<li><p>Learn to get comfortable with the uncomfortable situations. Some times they’re nessesary.</p></li>
-<li><p>The difference between old school AI and LLMs</p></li>
-<li><p>The org has to be setup for success</p></li>
-<li><p>Cross functional teams are gold</p></li>
-<li><p>Don’t take things personally</p></li>
-<li><p>Facilitation is a big part of leadership</p></li>
-<li><p>Energy</p></li>
+<li><p>DeepGEMM claims 2x–2.5x speedup over its own CUTLASS-based baseline.</p></li>
+<li><p>Uncertainty remains on performance vs. cuBLAS, which is the gold standard for NVIDIA GEMMs.</p></li>
+<li><p>FFMA SASS interleaving optimization improves FP8 GEMM performance by 10%+.</p></li>
+<li><p>Yield-bit manipulation allows warp-level parallelism, reducing stalls and improving register reuse.</p></li>
+<li><p>Similar techniques were used in NVIDIA Maxwell (2015) but hadn’t been applied to FP8 GEMMs.</p></li>
+<li><p>Reverse engineering NVIDIA’s SASS assembly has been a key part of these optimizations.</p></li>
+<li><p>Some corporations and hedge funds have implemented similar optimizations privately.</p></li>
+<li><p>Google and other AI firms have also explored undocumented NVIDIA optimizations.</p></li>
+<li><p>DeepSeek’s open-source MIT license approach is appreciated but benefits big AI companies more than individual developers.</p></li>
+<li><p>FP8 precision may not be sustainable long-term, as it relies on the assumption that models are inherently sparse.</p></li>
+<li><p>Native microscaling support (MXFP) in Blackwell GPUs may replace DeepGEMM’s scaling tricks.</p></li>
+<li><p>NVIDIA’s CUDA advantage (“moat”) may weaken if more AI accelerators integrate similar optimizations in hardware.</p></li>
+<li><p>DeepGEMM only runs on Hopper GPUs (H100, H800) due to Tensor Core dependencies.</p></li>
+<li><p>Attempts to run it on consumer GPUs (RTX 5080) failed due to shared memory limitations.</p></li>
+<li><p>Lowering memory settings in gemm.py may allow it to work on lower-end GPUs.</p></li>
+<li><p>GPU compiler technology still lags behind—manual optimizations like this show how much performance is left on the table.</p></li>
+<li><p>Future GPUs may reduce the need for low-level software optimizations as hardware catches up.</p></li>
+<li><p>NVIDIA keeps some GPU features undocumented, leading to reverse engineering by researchers and companies.</p></li>
+<li><p>AI engineers interested in GPU programming should learn CUDA, SIMT, warp scheduling, and memory hierarchies.</p></li>
+<li><p>Books recommended for learning GPU programming: Programming Massively Parallel Processors (Wen-Mei Hwu) and Advanced GPU Assembly Programming (Gareth Thomas).</p></li>
 </ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>All in all, DeepGEMM seems to be a library that provides CUDA kernels that can be accessed via PyTorch and enables numerically stable FP8 precision to speed up training and inference of Large Language Models.</p>
+<p>If you want to check out the two previous DeepSeek infra releases, visit the <a class="reference external" href="https://github.com/deepseek-ai/FlashMLA">FlashMLA</a> and <a class="reference external" href="https://github.com/deepseek-ai/DeepEP">DeepEP</a> repos. 👍</p>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
-       
+     
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+     
+    <a href="../how-i-code-with-ai/">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>How I Code With AI</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+  
 </div>
 
                 </article>
@@ -473,10 +549,26 @@
 
 
   <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-languages-used">Programming Languages Used</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-readme">The README</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms-that-i-don-t-know-and-or-understand">Terms That I Don’t Know and/or Understand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hacker-news-comments">Hacker News Comments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../../_sources/posts/2025/things-i-learned-in-my-first-year-as-a-lead-ai-engineer.rst.txt"
+      <li><a href="../../../_sources/posts/2025/deepgemm.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

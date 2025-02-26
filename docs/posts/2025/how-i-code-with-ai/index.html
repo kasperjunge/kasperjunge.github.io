@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>How I code with AI &#8212; Kasper Junge</title>
+    <title>How I Code With AI &#8212; Kasper Junge</title>
   
   
   
@@ -251,10 +251,10 @@
    
   <h2>
      
-    <i class="fa fa-pencil"></i>
-     
-    <span>Draft</span>
-     
+    <i class="fa fa-calendar"></i>
+    
+    <span>26 February 2025</span>
+    
   </h2>
   <ul>
     <div class="ablog-sidebar-item ablog__postcard2">
@@ -292,6 +292,12 @@
   </h3>
   <ul>
      
+    <li>
+      <a href="../deepgemm/">
+        26 February - Investigating the DeepSeek DeepGEMM Release
+      </a>
+    </li>
+    
     <li>
       <a href="../how-i-created-a-free-blog-using-python-and-github-pages/">
         16 February - How I created a free blog using Python and GitHub Pages
@@ -356,7 +362,7 @@
   <ul>
      
     <li>
-      <a href="../../../blog/2025/">2025 (2)</a>
+      <a href="../../../blog/2025/">2025 (4)</a>
     </li>
       
     <li>
@@ -413,7 +419,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><strong>How I code with AI</strong></span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How I Code With AI</span></li>
   </ul>
 </nav>
 </div>
@@ -430,44 +436,78 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                    <section id="how-i-code-with-ai">
-<h1><strong>How I code with AI</strong><a class="headerlink" href="#how-i-code-with-ai" title="Link to this heading">#</a></h1>
-<p>Since the launch of ChatGPT, I’ve been using LLMs for coding a lot.</p>
-<p>I’ve developed a workflow and some fundamental principles I use to get good results from AI chatbots and ideally to make AI do as much of the coding for me as possible.</p>
-<p>What I’ve experienced talking to others who are coding with AI, is that almost no one has the same workflow.</p>
-<p>Since I always enjoy hearing about others’ workflows, I thought I would share mine.</p>
-<p>When it comes to getting good results from AI chatbots, in my mental model there’s 3 components that can impact the result an LLM generates.</p>
-<p>Model capability
-Instruction
-Context
-The above I use as core components to think about how to get the best possible output from LLMs from first principles.</p>
-<p>I will refer back to them in the blog post.</p>
-<p>In this blog post I will tell about my AI coding workflow and how I got there.</p>
-<p>First of all – I mainly use vanilla ChatGPT for coding. I use a little GitHub copilot for autocomplete stuff, but no Cursor, lovable.dev, bito.new, devbin, etc.</p>
-<p>This might seem a little old-school and handheld, and I am always open for new ways of using AI for coding, but for now vanilla ChatGPT and a small tool I’ve developed works great for me.</p>
-<p>When I initiate my AI coding sessions, it is usually a situation where there’s some existing code that I want to add a feature to or modify in some way.</p>
-<p>Here we can bring in the fundamental components I mentioned earlier.</p>
-<p>Context: The existing code I want to modify.
-Instruction: The thing I want to do with the code.
-Usually, I have the instruction in my head, so I start out gathering the context that the LLM needs to fully understand my project.</p>
-<p>Back in the days, I did a lot of copy-pasting of file content into ChatGPT, which was pretty time-consuming, but worked well.</p>
-<p>Pretty quickly I also discovered that a common source of context-related failure was that the LLM did not know where the files were located relative to each other and in general had poor understanding of my project structure.</p>
-<p>That led to me using the “tree” command a lot and copy-pasting the output of it into ChatGPT (tree prints a file tree of a dir’s files and subdirs). This turned out to be valuable information for the LLM that helped it do a better job fulfilling my instructions.</p>
-<p>However, I quickly became tired of all that manual copy-pasting work, so I decided to invest some time into automating it.</p>
-<p>That led to me developing the tool “copcon” (for “copy context”).</p>
-<p>It basically works by typing:
-copcon /path/to/code/project</p>
-<p>in the terminal, and it copies the file tree and the content of all files directly onto the clipboard, so that context about the entire project is easily available on ctrl + v to copy-paste into ChatGPT.</p>
-<p>This really supercharged my workflow and improved the results I got from ChatGPT a lot. However, as the reader might predict, I quickly ran into another problem.</p>
-<p>As many may know, LLMs have limited context windows, meaning that there’s a finite amount of tokens they can process at a time.</p>
-<p>One thing I quickly discovered with copcon is that if the file tree is big, a lot of tokens is copied and it quickly bleats the context window of ChatGPT which simply makes it refuse my query.</p>
-<p>Also, even if the content fits in the context window, ChatGPT can become “confused” about the information overload which leads to degraded performance.</p>
-<p>So as a rule of thumb, I think it is always the best idea to keep the context as tight as possible.</p>
-<p>One thing I didn’t mention is that copcon is open source and can be found on GitHub and it’s on PyPi, so it can be installed using pip.</p>
-<p>The reason I mentioned this is because the solution to this problem came from a contributor.</p>
+<h1>How I Code With AI<a class="headerlink" href="#how-i-code-with-ai" title="Link to this heading">#</a></h1>
+<p>Since the release of ChatGPT, I’ve been coding <em>a lot</em> wiht AI.</p>
+<p>I’v been through a lot of trial and error, and have landend on a process that works well for me.</p>
+<p>When I talk to other developers that uses AI for coding about their workflow and what tools they use, I seem to get as many answers as people I ask.</p>
+<p>So I thought I would share my process with you.</p>
+<section id="the-tools-i-use">
+<h2>The Tools I use<a class="headerlink" href="#the-tools-i-use" title="Link to this heading">#</a></h2>
+<p>First I want to quickly go through the tools that I use. I keep it pretty simple and handheld, so the two tools that i mainly use is:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://chatgpt.com/">ChatGPT</a></p></li>
+<li><p><a class="reference external" href="https://github.com/kasperjunge/copcon">Copcon</a></p></li>
+</ol>
+<p>ChatGPT is obviously an LLM-based chatbot.</p>
+<p>Copcon is a tool I’ve developed to efficiently copy context from my code project to ChatGPT (more on <a class="reference external" href="https://github.com/kasperjunge/copcon">Copcon</a> later).</p>
+<p>When I tell other devs about my stack, a common reaction is that it is kind of handheld and thinks that I could benefit from tools that automates the copy conext part.</p>
+<p>I’m not at all sure that my ways is the best (it is probably not i guess) and I am curious if I am making it harder for myself using this quite handheld stack, so I have it on my todo to try some of the other tools and I will probably write a blog post on the pros and cons by the method i describe now vs other soliutions like Cursor, GitHub Copilot Chat etc.</p>
+</section>
+<section id="the-3-components">
+<h2>The 3 Components<a class="headerlink" href="#the-3-components" title="Link to this heading">#</a></h2>
+<p>When I think about what it takes to increase the quality of the code that AI writes for me, I think about it in the following three components:</p>
+<ol class="arabic simple">
+<li><p>Context</p></li>
+<li><p>Instruction</p></li>
+<li><p>Model capability</p></li>
+</ol>
+<p>In the following I will go through each of the components and how I optimize for each of them.</p>
+<ol class="arabic simple">
+<li><p>Load context into the LLM</p></li>
+<li><p>Write my instruction</p></li>
+<li><p>Clarify my instruction with the LLM</p></li>
+<li><p>Put the LLM to work</p></li>
+</ol>
+<section id="context">
+<h3>Context<a class="headerlink" href="#context" title="Link to this heading">#</a></h3>
+<p>When you use LLMs you have to work with the fact that even though they on a super human level know a lot about many concepts in the world, they know nothing about you, your situation, what you want to accomplish and how you want to accomplish it.</p>
+<p>And the solution is actually simple. You have to provide all the nessesary context about all information that is relevant to solve you problem, in the prompt.</p>
+<p>The catch is that this this is actually hard work to provid context. It involves a lot of copy pasting and thinking about what information is relevant and what is not.</p>
+<p>In fact, this can be so time consuming that many developers conclude that it is simply</p>
+<p>My first step when begging an AI coding session is to boot the context into the LLM.</p>
+</section>
+<section id="instruction">
+<h3>Instruction<a class="headerlink" href="#instruction" title="Link to this heading">#</a></h3>
+</section>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
-       
+     
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+     
+    <a href="../how-i-created-a-free-blog-using-python-and-github-pages/">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>How I created a free blog using Python and GitHub Pages</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+     
+    <a href="../deepgemm/">
+      <span>Investigating the DeepSeek DeepGEMM Release</span>
+      
+      <i class="fa fa-arrow-circle-right"></i>
+      
+    </a>
+    
+  </span>
+</div>
+  
 </div>
 
                 </article>
@@ -489,6 +529,23 @@ copcon /path/to/code/project</p>
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tools-i-use">The Tools I use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-3-components">The 3 Components</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction">Instruction</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
