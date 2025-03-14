@@ -1,0 +1,11 @@
+.. post:: Feb 28, 2025
+   :tags: 
+   :author: Kasper Junge
+
+Thinking about Solving Accounting Using AI From First Principles
+=================================================================
+
+Accounting it registration and cateogization of a business' income and expenses. 
+
+
+
