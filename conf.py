@@ -202,10 +202,15 @@ extensions = [
     'sphinx.ext.todo',
     'alabaster',
     'ablog',
+    'myst_parser',
 ]
 
 # The suffix(es) of source filenames.
-source_suffix = ".rst"
+# source_suffix = ".rst"
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
@@ -245,7 +250,14 @@ language = "en"
 exclude_patterns = [""
     '**/site-packages/**',
     '**/*.dist-info/**',
+    "posts/*/.ipynb_checkpoints/*",
+    ".github/*",
+    ".history",
+    "github_submodule/*",
+    "LICENSE.md",
+    "README.md",
 ]
+
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
