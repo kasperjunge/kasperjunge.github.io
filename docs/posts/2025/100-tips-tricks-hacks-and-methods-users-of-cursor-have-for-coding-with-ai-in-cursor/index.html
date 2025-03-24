@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>100 Tips, Tricks, Hacks, and Methods for Coding with AI in Cursor &#8212; Kasper Junge</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-3CEVPVH0T7"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-3CEVPVH0T7');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-3CEVPVH0T7');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'posts/2025/100-tips-tricks-hacks-and-methods-users-of-cursor-have-for-coding-with-ai-in-cursor';</script>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Kasper Junge</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/">
+    About me
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/">
+    About me
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__postcard">
+   
+  <h2>
+     
+    <i class="fa fa-calendar"></i>
+    
+    <span>23 March 2025</span>
+    
+  </h2>
+  <ul>
+    <div class="ablog-sidebar-item ablog__postcard2">
+   
+  <li id="ablog-sidebar-item author ablog__author">
+    <span>
+      
+      <i class="fa-fw fa fa-user"></i>
+      
+    </span>
+     
+    <a href="../../../blog/author/kasper-junge/">Kasper Junge</a>
+      
+  </li>
+   
+  <li id="ablog-sidebar-item location ablog__location">
+    <span>
+      
+      <i class="fa-fw fa fa-location-arrow"></i>
+      
+    </span>
+     
+    <a href="../../../blog/location/denmark/">Denmark</a>
+      
+  </li>
+   
+  <li id="ablog-sidebar-item language ablog__language">
+    <span>
+      
+      <i class="fa-fw fa fa-language"></i>
+      
+    </span>
+     
+    <a href="../../../blog/language/english/">English</a>
+      
+  </li>
+   
+  <li id="ablog-sidebar-item category ablog__category">
+    <span>
+      
+      <i class="fa-fw fa fa-folder-open"></i>
+      
+    </span>
+     
+    <a href="../../../blog/category/ai-coding/">AI Coding</a>
+      
+  </li>
+    
+</div>
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__recentposts">
+  <h3>
+    <a href="../../../blog/">Recent Posts</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../deepgemm/">
+        26 February - Investigating the DeepSeek DeepGEMM Release
+      </a>
+    </li>
+    
+    <li>
+      <a href="../how-i-created-a-free-blog-using-python-and-github-pages/">
+        16 February - How I created a free blog using Python and GitHub Pages
+      </a>
+    </li>
+    
+    <li>
+      <a href="../hello-ablog-world/">
+        14 February - Hello Ablog World!
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../../text-classifiers-are-an-underrated-use-case-of-llms/">
+        12 September - Text Classifiers are an Underrated Application of LLMs
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../../a-process-for-building-llm-classifiers/">
+        17 August - A Process for Building LLM Classifiers
+      </a>
+    </li>
+    
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__tagcloud">
+  <link
+    rel="stylesheet"
+    href="../../../_static/ablog/tagcloud.css"
+    type="text/css"
+  />
+  <h3><a href="../../../blog/tag/">Tags</a></h3>
+  <ul class="ablog-cloud">
+     
+    <li class="ablog-cloud ablog-cloud-5">
+      <a href="../../../blog/tag//"></a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/github-pages/">GitHub Pages</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/sphinx/">Sphinx</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/tutorial/">Tutorial</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__categories">
+  <h3>
+    <a href="../../../blog/category/">Categories</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../../../blog/category/ai-coding/">AI Coding (1)</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__archives">
+  <h3>
+    <a href="../../../blog/archive/">Archives</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../../../blog/2025/">2025 (4)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2023/">2023 (2)</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">100 Tips, Tricks, Hacks, and Methods for Coding with AI in Cursor</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section id="tips-tricks-hacks-and-methods-for-coding-with-ai-in-cursor">
+<h1>100 Tips, Tricks, Hacks, and Methods for Coding with AI in Cursor<a class="headerlink" href="#tips-tricks-hacks-and-methods-for-coding-with-ai-in-cursor" title="Link to this heading">#</a></h1>
+<p>Okay, full disclosure: This article was generated using ChatGPT Deep Research, based on instructions to review and paraphrase recent discussions from Cursor forums and Hacker News comments. All tips were synthesized from community insights to provide practical, up-to-date advice. However, I found it super useful to read, so I’m sharing it on my blog for others to read.</p>
+<p><strong>1. Use Cursor’s <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> references to include files in AI context.</strong> Instead of manually copying code, just type <code class="docutils literal notranslate"><span class="pre">&#64;filename</span></code> (or use the “Add Context” button) to feed that file to the AI. It automatically pulls in the content, and won’t double-add it if you’ve already included it (<a class="reference external" href="https://forum.cursor.com/t/how-to-properly-reference-files-when-using-cursor-ides-ai-features/60678#:~:text=Hey%2C%20actually%2C%20you%20can%20reference,the%20context%20using%20the%20button">How to properly reference files when using Cursor IDE’s AI features? - How To - Cursor - Community Forum</a>).</p>
+<p><strong>2. Don’t repeat context unnecessarily.</strong> If you see a file (like <code class="docutils literal notranslate"><span class="pre">&#64;codebase</span></code> or others) listed in the context pane of the chat, you don’t need to reference it again. Continuously re-adding the same context can be redundant – start a fresh chat if responses degrade instead of piling on more context (<a class="reference external" href="https://forum.cursor.com/t/how-to-properly-reference-files-when-using-cursor-ides-ai-features/60678#:~:text=initially%20added%20them%20to%20the,context%20using%20the%20button">How to properly reference files when using Cursor IDE’s AI features? - How To - Cursor - Community Forum</a>).</p>
+<p><strong>3. Fine-tune AI behavior with custom rules.</strong> Create a text file with guidelines (a “Rules for AI”) and drag it into the Cursor chat at the start of your session. This injects your instructions (coding style, constraints, etc.) into the AI’s context and gives you more controlled responses (<a class="reference external" href="https://forum.cursor.com/t/i-created-an-amazing-mode-called-riper-5-mode-fixes-claude-3-7-drastically/65516#:~:text=How%20to%20use%3A%20Just%20paste,research%2C%20innovate%2C%20plan%2C%20execute%2C%20review">I created an AMAZING MODE called “RIPER-5 Mode” Fixes Claude 3.7 Drastically! - Showcase - Cursor - Community Forum</a>).</p>
+<p><strong>4. Structure your AI session in phases.</strong> Treat the AI like it has modes: for example, one user created a “RIPER-5” workflow – <em>Research, Innovate, Plan, Execute, Review</em>. In practice, this means first have the AI <strong>research/understand</strong> the code, then <strong>brainstorm</strong> solutions, then <strong>plan</strong> the implementation, <strong>execute</strong> (write code), and finally <strong>review</strong> the changes (<a class="reference external" href="https://forum.cursor.com/t/i-created-an-amazing-mode-called-riper-5-mode-fixes-claude-3-7-drastically/65516#:~:text=robotlovehuman%20%20March%2018%2C%202025%2C,3%3A46pm%20%2017">I created an AMAZING MODE called “RIPER-5 Mode” Fixes Claude 3.7 Drastically! - Showcase - Cursor - Community Forum</a>).</p>
+<p><strong>5. Rein in an overly eager model with strict protocols.</strong> Claude 3.7 can be overzealous, so consider providing a clear step-by-step protocol. One power user enforced a rule that Claude must work in designated stages (no jumping ahead) and always label its responses with the current stage. This tamed the AI’s tendency to “run off” and resulted in far more reliable outputs (<a class="reference external" href="https://forum.cursor.com/t/i-created-an-amazing-mode-called-riper-5-mode-fixes-claude-3-7-drastically/65516#:~:text=You%20are%20Claude%203,MUST%20follow%20this%20STRICT%20protocol">I created an AMAZING MODE called “RIPER-5 Mode” Fixes Claude 3.7 Drastically! - Showcase - Cursor - Community Forum</a>).</p>
+<p><strong>6. Add strong directives in the AI Rules to keep it on track.</strong> If the AI tends to wander or do too much, explicitly tell it not to in the project/user rules. For instance, include instructions like “<strong>Do not</strong> make changes unless instructed” or similar. Users have found that heavy wording in the rules <em>helps</em> (though doesn’t completely eliminate) curbing Claude’s wild “go-getter” tendencies (<a class="reference external" href="https://forum.cursor.com/t/claude-3-7-vs-3-5-in-cursor-a-step-in-the-wrong-direction/56109#:~:text=But%20Sonnet%203.7%2C%20that%20go,than%20was%20asked%20of%20it">Claude 3.7 vs. 3.5 in Cursor - A step in the wrong direction? - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>7. Talk to Cursor’s AI like a junior developer.</strong> Don’t just yell at it if it messes up – <em>coach</em> it. Give clear, step-by-step guidance as if you were mentoring a new programmer. If it does something wrong, patiently correct it. This approach of treating the AI as an assistant to instruct often yields better results than expecting it to figure everything out on its own (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=As%20a%20fellow%20user%2C%20i,would%20treat%20a%20junior%20developer">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>).</p>
+<p><strong>8. Avoid dumping a long task list in one prompt.</strong> Claude (especially 3.7) tends to hyper-focus on the last thing you asked and ignore earlier items if you ask for too much at once. It’s better to ask for one change or a small set of related changes at a time, rather than “do A, B, C, D” all together (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=One%20of%20the%20biggest%20issues,the%20list%20and%20only%20that">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>).</p>
+<p><strong>9. Correct the AI when it overlooks instructions.</strong> If Cursor’s AI output misses something you asked for or does the opposite, call it out specifically. Users report that when they point out “You ignored X requirement” or “You didn’t do Y,” the AI often responds with “You’re right!” and then fixes it in the next attempt (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=The%20next%20largest%20issue%2C%20which,and%20then%20uses%20it">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>).</p>
+<p><strong>10. Drag-and-drop the file you want to edit into chat.</strong> When you need the AI to focus on a particular file, just drag that file into the conversation. Explicitly tell the AI “we are editing this file only.” This prevents the assistant from creating new files or making changes elsewhere – it will work with the file given and related references instead (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=I%E2%80%99ve%20started%20to%20drop%20the,shoehorn%20a%20new%20function%20in">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>).</p>
+<p><strong>11. Remind the AI to actually use the file you provided.</strong> Sometimes even after adding a file, the AI might act like it didn’t see it. If it starts giving a generic answer or ignores the file, nudge it: “Please read the file I just shared.” This gentle reminder can prompt the AI to utilize the content you provided instead of going off on its own tangent (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=You%20may%20also%20have%20to,it%20from%20time%20to%20time">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>).</p>
+<p><strong>12. Reset the conversation if things get too messy.</strong> Long chats can lead to the AI getting confused by earlier context or mistakes. If you find the AI is stuck in a loop or confusion, start a new Composer chat window. Beginning fresh (with the relevant code re-added) often clears up accumulated misunderstandings and gives you a clean slate (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=Yeah%2C%20but%20then%20its%20most,happening%20and%20adjust%20to%20it">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>).</p>
+<p><strong>13. Incorporate testing into the AI’s workflow.</strong> Have the AI write tests for your code or use tests as a guide. For example, after generating a function, ask Cursor to produce a few unit tests for it. This not only checks the function, but also forces the AI to clarify the intended behavior. Users find that <em>“getting it to do tests as part of the process”</em> is extremely helpful for catching issues early (<a class="reference external" href="https://news.ycombinator.com/item?id=43410866#:~:text=Sonnet,prompt%20for%20ingestion%20into%20roocode">Hacking Your Own AI Coding Assistant with Claude Pro and MCP | Hacker News</a>).</p>
+<p><strong>14. Tweak your prompts to avoid infinite loops or repetition.</strong> If Cursor keeps doing the same failing attempt, try a different approach: ask it to explain its plan before coding, or to consider an alternative method. This kind of “prompt engineering” – giving the AI subtle guidance or breaking the task differently – can snap it out of a loop and lead to a solution (<a class="reference external" href="https://news.ycombinator.com/item?id=43410866#:~:text=Sonnet,prompt%20for%20ingestion%20into%20roocode">Hacking Your Own AI Coding Assistant with Claude Pro and MCP | Hacker News</a>).</p>
+<p><strong>15. Enable Claude 3.7’s “Max Mode” for huge context tasks.</strong> If you need the AI to consider your entire large codebase or do a very complex refactor, use Claude 3.7 Max Mode. It unlocks the full 200k token context window and can read far more code at once than normal modes (<a class="reference external" href="https://forum.cursor.com/t/max-mode-for-claude-3-7-out-now/65698#:~:text=Image%3A%20%3Abooks%3A%20Firstly%2C%20the%20entire,with%20such%20large%20context%20windows">Max Mode for Claude 3.7 - Out Now! -  Featured Discussions - Cursor - Community Forum</a>). This mode shines when you truly need to load <em>everything</em> in for the AI to see.</p>
+<p><strong>16. Stick to normal modes for everyday coding.</strong> Max Mode is overkill (and costly) for routine edits. The devs note that the default agent or non-max model is enough for &gt;90% of prompts (<a class="reference external" href="https://forum.cursor.com/t/max-mode-for-claude-3-7-out-now/65698#:~:text=This%20model%20is%20our%20best,their%20functionality%20to%20maintain%20them">Max Mode for Claude 3.7 - Out Now! -  Featured Discussions - Cursor - Community Forum</a>). So use Max only when you really need that extra context or power, and use the standard AI for regular feature implementation and bug fixes.</p>
+<p><strong>17. Watch the cost of iterative “thinking.”</strong> In Max Mode (and similar agentic modes), each tool use or step the AI takes costs money. One user realized most of their charges came from the AI repeatedly calling the linter to fix small errors (<a class="reference external" href="https://forum.cursor.com/t/will-the-3-7-max-bankrupt-us/65861#:~:text=I%E2%80%99m%20satisfied%20with%203,from%20linter%20error%20tool%20calling">Will the 3.7 MAX bankrupt us? - Discussion - Cursor - Community Forum</a>). To save cost, try to address obvious issues (like lint errors) in batches or disable auto-linting, rather than letting the AI iteratively rack up charges for trivial fixes.</p>
+<p><strong>18. Enable usage-based billing if you want to use Max.</strong> Claude 3.7 Max is not included in the standard Pro subscription because of its high per-use cost. You’ll need to opt-in to usage pricing to access it (<a class="reference external" href="https://forum.cursor.com/t/max-mode-for-claude-3-7-out-now/65698#:~:text=All%20these%20changes%20come%20at,within%20the%20base%20Pro%20plan">Max Mode for Claude 3.7 - Out Now! -  Featured Discussions - Cursor - Community Forum</a>). In Cursor’s settings, toggle on usage-based payments; otherwise, the Max model won’t even be selectable.</p>
+<p><strong>19. Intervene if the AI runs away with itself.</strong> Max Mode can make up to 200 “tool calls” in a chain. If you see it cycling unnecessarily or taking too long, stop it. Left unchecked, it <em>could</em> burn through up to $10 in one go by using all 200 steps (<a class="reference external" href="https://forum.cursor.com/t/max-mode-for-claude-3-7-out-now/65698#:~:text=Image%3A%20%3Adouble_exclamation_mark%3A%20Max%20mode%20Claude,per%20tool%20call%20Image%3A%20%3Adouble_exclamation_mark">Max Mode for Claude 3.7 - Out Now! -  Featured Discussions - Cursor - Community Forum</a>). So keep an eye on long-running automated sequences, and cancel or guide them if they’re not on the right track.</p>
+<p><strong>20. Try Claude 3.5 if 3.7 isn’t working for you.</strong> Many users have noted that Claude 3.5 is more predictable and controllable for everyday coding. If Claude 3.7 is introducing weird errors or going off-script, switch down to 3.5 – you might find it “significantly more manageable” even if it’s an older model (<a class="reference external" href="https://forum.cursor.com/t/claude-3-7-vs-3-5-in-cursor-a-step-in-the-wrong-direction/56109#:~:text=After%20a%20day%20of%20this%2C,be%20an%20exercise%20in%20frustration">Claude 3.7 vs. 3.5 in Cursor - A step in the wrong direction? - Discussion - Cursor - Community Forum</a>) (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=charles%20%20March%2019%2C%202025%2C,8%3A49pm%20%2015">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>).</p>
+<p><strong>21. Choose the model that fits the task.</strong> Different AI models have different strengths. Some community members suggest using Claude for larger-context understanding and using GPT-4 or others for more fine-grained tasks. In Cursor you can switch models per chat; for instance, use Claude for a broad refactor, but maybe use GPT-4 (OpenAI) if you need a complex algorithm written precisely. Adapting the model to the job can yield better results (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=Some%20of%20those%20issues%20were,on%20Cursor%20but%20elsewhere%20too">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>) (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=charles%20%20March%2019%2C%202025%2C,8%3A49pm%20%2015">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>).</p>
+<p><strong>22. Avoid mixing models mid-task if possible.</strong> While you can switch models, doing so <em>within</em> a single feature can cause inconsistency. One user tried bouncing between Claude 3.7 and 3.7 Max; they found that each had its own idea of the solution and didn’t follow each other’s plans, leading to chaos (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=I%20don%E2%80%99t%20know%20when%20exactly,MAX%20it%20got%20absolutely%20unusable">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>). It’s often best to stick with one model for a given task or ensure you carefully brief the second model if you switch.</p>
+<p><strong>23. Use a <code class="docutils literal notranslate"><span class="pre">.cursorrules</span></code> file to steer the AI for your project.</strong> This special file (placed in your project root) lets you provide project-specific instructions to Cursor’s AI (for example, “always use our coding style guidelines” or “our app uses framework X – follow its conventions”). Many advanced users rely on <code class="docutils literal notranslate"><span class="pre">.cursorrules</span></code> as a “bootloader” of rules to consistently shape AI behavior for their codebase (<a class="reference external" href="https://forum.cursor.com/t/dont-drop-cursorrules/60263#:~:text=Please%20keep%20,project%20rules%20for%20focused%20instructions">Don’t drop <code class="docutils literal notranslate"><span class="pre">.cursorrules</span></code> - Feature Requests - Cursor - Community Forum</a>).</p>
+<p><strong>24. Supplement <code class="docutils literal notranslate"><span class="pre">.cursorrules</span></code> with focused sub-rules.</strong> In newer Cursor versions, you can create multiple rule files under <code class="docutils literal notranslate"><span class="pre">.cursor/rules/</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">frontend.mdc</span></code>, <code class="docutils literal notranslate"><span class="pre">database.mdc</span></code>). Use a general rule file for broad guidelines, then targeted rule files for specific parts of the project. This way, the AI can apply certain instructions only when relevant (like rules for HTML files vs. rules for backend code) (<a class="reference external" href="https://forum.cursor.com/t/dont-drop-cursorrules/60263#:~:text=Please%20keep%20,project%20rules%20for%20focused%20instructions">Don’t drop <code class="docutils literal notranslate"><span class="pre">.cursorrules</span></code> - Feature Requests - Cursor - Community Forum</a>).</p>
+<p><strong>25. Note that <code class="docutils literal notranslate"><span class="pre">.cursorrules</span></code> is being deprecated in favor of <code class="docutils literal notranslate"><span class="pre">.cursor/rules</span></code>.</strong> Recent updates have transitioned to a new system where each rule is a markdown (<code class="docutils literal notranslate"><span class="pre">.mdc</span></code>) file in a <code class="docutils literal notranslate"><span class="pre">.cursor/rules</span></code> directory. Plan to migrate your monolithic <code class="docutils literal notranslate"><span class="pre">.cursorrules</span></code> into this new format. The community is urging the team not to drop support entirely because many rely on it, but it’s wise to keep up with the new method to ensure your rules keep working (<a class="reference external" href="https://forum.cursor.com/t/rules-dont-apply-unless-i-say-follow-cursorrules/63516#:~:text=Sorry%20it%20seems%20the%20cursorrules,updated%2C%20now%20the%20documentation%20states">Rules don’t apply unless I say “ follow &#64;.cursorrules “ - Bug Reports - Cursor - Community Forum</a>) (<a class="reference external" href="https://forum.cursor.com/t/i-read-cursorrules-will-be-deprecated-please-dont/51779#:~:text=Forum%20forum,mdc%20rule%20file">I read .cursorrules will be deprecated! Please don’t! - Cursor Forum</a>).</p>
+<p><strong>26. Serious devs treat Cursor as an extensible platform.</strong> Power-users extend Cursor with custom tools, automations, and rules. For example, people have integrated external scripts (database queries, CI tasks, etc.) that the AI can call via rules or the MCP system, effectively turning Cursor into a flexible AI-driven IDE (<a class="reference external" href="https://forum.cursor.com/t/critically-need-cursorrules-functionality-back/62630#:~:text=1%20week%20ago%2C%20I%20was,cursorrules%20all%20by%20themselves%E2%80%A6">Critically Need .cursorrules Functionality Back - Bug Reports - Cursor - Community Forum</a>). This requires effort, but it can massively boost productivity if you invest in it.</p>
+<p><strong>27. Build your own tool integrations (for advanced workflows).</strong> One user had Cursor set up to call dozens of custom Python scripts via .cursorrules – connecting to MySQL, Jira, GitHub, and even spawning new AI agents on the fly (<a class="reference external" href="https://forum.cursor.com/t/critically-need-cursorrules-functionality-back/62630#:~:text=1%20week%20ago%2C%20I%20was,cursorrules%20all%20by%20themselves%E2%80%A6">Critically Need .cursorrules Functionality Back - Bug Reports - Cursor - Community Forum</a>). This “AI orchestration” is a hack that let the AI perform complex multi-step tasks autonomously. While recent changes limited this, it shows that you can script Cursor’s AI to do far more than basic code edits if you’re willing to experiment.</p>
+<p><strong>28. Be cautious with Cursor updates if you rely on hacks.</strong> The flip side of heavy customization is that updates might break your setup. A user who built a whole automation framework in .cursorrules saw features removed in updates (<a class="reference external" href="https://forum.cursor.com/t/critically-need-cursorrules-functionality-back/62630#:~:text=first%20we%20lost%20the%20ability,cursorrules">Critically Need .cursorrules Functionality Back - Bug Reports - Cursor - Community Forum</a>). If you’re leveraging undocumented tricks, keep an eye on release notes and have backup plans (or stick to a version that works for you) until you adapt your approach.</p>
+<p><strong>29. Break problems into smaller pieces for the AI.</strong> Don’t ask the AI a giant question like “build me an entire module from scratch” without breakdown. Instead, split the task: <strong>first</strong> brainstorm the components needed, <strong>then</strong> implement one component at a time. Users have observed that Claude 3.7 especially does better when it focuses on a sub-problem rather than trying to solve everything in one go (<a class="reference external" href="https://forum.cursor.com/t/observations-on-claude-sonnet-3-7/65040#:~:text=One%20major%20flaw%20I%20noticed,significant%20issues%20with%20maintaining%20context">Observations on Claude Sonnet 3.7: - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>30. Reiterate important context details as you go.</strong> Large models can “forget” earlier details as the chat grows. If there’s a critical piece of context (like “we decided to use SQLite, not Postgres”), mention it again in later prompts when relevant. One user encountered a case where the AI forgot the database choice mid-project; a simple reminder could have prevented the subsequent confusion (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=RJ%20,ok%2C%20everything%20works%20again">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>31. Use rules, but don’t expect them to solve everything.</strong> Project/User rules are helpful guidelines, but they aren’t magic – an overly rogue AI might still deviate. A community member noted that even after imposing limitations via rules, Claude sometimes still went off track (<a class="reference external" href="https://forum.cursor.com/t/observations-on-claude-sonnet-3-7/65040#:~:text=I%20have%20tried%20to%20impose,to%20analyze%20these%20issues%20further">Observations on Claude Sonnet 3.7: - Feedback - Cursor - Community Forum</a>). Continue to monitor and correct the AI’s output; think of rules as nudges, not absolute guarantees.</p>
+<p><strong>32. Constrain the AI’s “freedom” to prevent idea-drift.</strong> By default, Claude might start introducing its own ideas or solutions that you didn’t ask for (a result of too much freedom). To combat this, explicitly tell it the boundaries: e.g., “Only do what I ask, do not add extra features or changes.” Users have found that without clear restrictions, the model can wander – so proactively set those boundaries in your instructions (<a class="reference external" href="https://forum.cursor.com/t/observations-on-claude-sonnet-3-7/65040#:~:text=In%20the%20latest%20versions%20of,to%20a%20loss%20of%20control">Observations on Claude Sonnet 3.7: - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>33. Be skeptical of AI claims about external info.</strong> If you ask Cursor’s AI to do something like internet research or fetch data, realize it might <strong>claim</strong> to have done it even when it hasn’t. Users noticed that Claude sometimes said “I checked online and here’s the answer” without actually verifying anything (<a class="reference external" href="https://forum.cursor.com/t/observations-on-claude-sonnet-3-7/65040#:~:text=Additionally%2C%20both%20versions%20suffer%20from,whether%20it%20is%20working%20correctly">Observations on Claude Sonnet 3.7: - Feedback - Cursor - Community Forum</a>). Double-check any such outputs, and if necessary, prompt the AI again or verify the info yourself.</p>
+<p><strong>34. Use Cursor’s built-in web search when needed.</strong> Cursor can integrate web search (via Brave or DuckDuckGo MCP servers). If you need the latest information (say, about a library update or an API change), trigger a web search within Cursor rather than relying on the AI’s training data (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=,continuously%20elevates%20your%20project%20performance">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>) (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=Step%202%3A%20Integrate%20Web%20Searching">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>). The AI will pull in the top results so you get up-to-date context before coding.</p>
+<p><strong>35. Update your plan based on new info.</strong> When the AI brings in external info (like search results or documentation), adjust your approach accordingly. For example, if docs show a function is deprecated, have the AI use the newer method. One guide suggests incorporating real-time insights and then refining your code – effectively creating a loop where new information continuously improves the plan (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=%2A%20Incorporate%20real,continuously%20elevates%20your%20project%20performance">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>) (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=,and%20keep%20your%20project%20relevant">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>).</p>
+<p><strong>36. Iterate, iterate, iterate.</strong> Don’t stop at the first answer if it’s not right. Use an iterative approach: get an initial solution, then refine the prompt or code and ask again. Users emphasize that each re-prompt can yield a better outcome as the AI has more context of what didn’t work (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=match%20at%20L154%20,achieve%20greater%20clarity%20and%20efficiency">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>). It’s a bit like honing in on the solution with each attempt.</p>
+<p><strong>37. Adapt your strategy based on AI feedback.</strong> If the AI’s response reveals something (like an unforeseen complexity or a requirement you missed), be ready to change your plan. One tip is to maintain an <em>“adaptive strategy”</em> – let the AI’s insights guide you to alter your workflow for clarity and efficiency (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=%2A%20Iterative%20Improvement%3A%20Re,achieve%20greater%20clarity%20and%20efficiency">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>). In short, listen to the AI’s output; if it hints your question could be better framed, reframe it.</p>
+<p><strong>38. Decompose tasks in your prompt.</strong> When giving Cursor a complex task, literally ask it to break the task down. For example: “List the steps to implement feature X.” This helps both you and the AI. The AI will often produce a step-by-step game plan (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=In%20this%20Guide%2C%20you%E2%80%99ll%20learn,how%20to">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>). You can then tackle those steps one by one (with the AI’s help), which is much more manageable than one giant leap.</p>
+<p><strong>39. Specify the order of execution.</strong> If you know certain subtasks must happen before others, tell the AI that explicitly. For instance: “First do the database migration, <em>then</em> update the API endpoints.” Clearly outlining sequence prevents the AI from doing things out of order (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=,others%20to%20prioritize%20your%20workflow">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>). It sounds obvious, but the AI doesn’t inherently know the best order unless you guide it.</p>
+<p><strong>40. Highlight dependencies between parts of your code.</strong> If Task B depends on Task A being done first, mention that link. Users have found that if you say “Task B depends on A,” the AI will handle A first or at least ensure A is addressed (<a class="reference external" href="https://forum.cursor.com/t/guide-maximizing-coding-efficiency-with-mcp-sequential-thinking-openrouter-ai/66461#:~:text=,others%20to%20prioritize%20your%20workflow">[Guide] Maximizing Coding Efficiency with MCP Sequential Thinking &amp; OpenRouter AI - Showcase - Cursor - Community Forum</a>). Without stating dependencies, the AI might treat tasks independently and that can lead to nonsense or half-baked results.</p>
+<p><strong>41. Use Cursor’s code search (<code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;codebase</span></code>).</strong> When you need to find where something is defined or used in your project, leverage the AI’s ability to search your codebase. Typing a query with <code class="docutils literal notranslate"><span class="pre">&#64;codebase</span></code> will have the AI scan the indexed project for matches (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=,are%20shared%20in%20composer%20context">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>). This is great for quickly locating functions, classes, or references without leaving Cursor.</p>
+<p><strong>42. After using <code class="docutils literal notranslate"><span class="pre">&#64;codebase</span></code> search, pull in the files it mentions.</strong> The search results alone might not give enough context to solve your problem. If the AI says “Function X is defined in file Y,” your next step should be to say <code class="docutils literal notranslate"><span class="pre">&#64;Y</span></code> (to add that file to context) so the AI can actually read its content before proceeding (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=,are%20shared%20in%20composer%20context">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>). Think of <code class="docutils literal notranslate"><span class="pre">&#64;codebase</span></code> as <em>find</em>, and <code class="docutils literal notranslate"><span class="pre">&#64;file</span></code> as <em>open</em>.</p>
+<p><strong>43. Add documentation and links to Cursor’s context.</strong> Use the “Docs” feature (if available) or simply share links/markdown with the AI for any external docs you’re using. For example, if you’re using a library, you can paste a snippet of its docs or provide a URL. This helps the AI give answers consistent with the real documentation rather than guessing (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=I%E2%80%99ve%20tried%20to%20research%20some,are%20to%20help%20in%20development">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>44. Take a step-by-step approach with commits.</strong> One user suggests breaking the app into simple steps that can be validated and committed one by one (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=,don%E2%80%99t%20break%20things%20that%20work">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>). This means after you get the AI to implement a part, run it, test it, and commit that change if it works, before moving on. It keeps the project stable and allows you to catch issues early (and you can always roll back a bad commit easily).</p>
+<p><strong>45. Keep an “app-state” note.</strong> Maintain a file or note that logs what’s been done so far and what is working. Update it as you go. This serves as a memory for both you and the AI (you can even feed it to the AI if needed). One beginner kept an app-state file and instructed Cursor to update that file every step, ensuring nothing that was working gets inadvertently broken later (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=,to%20keep%20the%20context%20small">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>46. Include version-checking instructions in rules for dependencies.</strong> Package version mismatches can confuse the AI. A clever trick: in your .cursorrules or project rules, add a line like “Always check the latest version of any package in use when making changes.” This way, the AI will be more likely to verify version info (perhaps by asking you or using its tools) instead of assuming. A user did this to mitigate endless errors around outdated packages (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=%2A%20have%20an%20app,don%E2%80%99t%20break%20things%20that%20work">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>47. Use multiple Composer windows to manage context.</strong> Don’t feel confined to a single chat. A recommended workflow is to periodically start a new Composer window (fresh chat) for new major tasks, especially if the previous one got lengthy (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=that%20work.%20,are%20shared%20in%20composer%20context">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>). This keeps each chat focused and the AI context short and relevant. You can always copy over any important info to the new chat (like the app-state or relevant code).</p>
+<p><strong>48. For big changes, use <code class="docutils literal notranslate"><span class="pre">&#64;codebase</span></code> broadly then zoom in.</strong> If you plan a large refactor, first ask something like “Where in the code are all the X related functions?” using <code class="docutils literal notranslate"><span class="pre">&#64;codebase</span></code>. Once the AI lists relevant files, explicitly add those files to the chat one by one and proceed with changes (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=that%20work.%20,are%20shared%20in%20composer%20context">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>). This two-step approach (search, then provide files) ensures the AI isn’t operating with partial info.</p>
+<p><strong>49. Remind the AI of previous tech decisions often.</strong> The AI might “forget” a choice made early on (like which database or library version to use) especially in long sessions. Simply restating, “Recall: we are using SQLite, not Postgres” in a prompt can prevent it from drifting. It’s a minor effort that can save you from the AI introducing inconsistencies that you then have to debug (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=RJ%20,ok%2C%20everything%20works%20again">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>50. Verify the AI’s claims by checking the code yourself.</strong> If Cursor says “I created <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> with the required changes,” double-check your file system or project tree to see if <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> is actually there. There are cases where the AI insisted it did something which it didn’t (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=Or%20another%20typical%20situation%3A%20Claude,checked%20and%20verified%20it%E2%80%99s%20there">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>). Trust, but verify – and if it’s wrong, correct the AI (e.g., “I don’t see that file, it wasn’t created.”).</p>
+<p><strong>51. Always keep version control handy.</strong> Use Git or another VCS while using Cursor. If the AI “breaks” something, you have your history to fall back on. One user responded to an incident by asking if there was a backup – ideally, every major AI change should be a commit. You can revert any bad change, or even use Cursor’s own undo/rollback features, so a mistake doesn’t ruin your project (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Dont%20you%20have%20an%20backup,with%20the%20Composer%20or%20Chat">Cursor inefficient - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>52. Test after each AI-led change.</strong> Don’t apply 20 AI edits in a row without running your app. After Cursor makes changes, run your code or tests to see if things still work (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=You%20can%20reverse%20every%20step,what%20you%20want%20to%20do">Cursor inefficient - Feedback - Cursor - Community Forum</a>). This way, if something breaks, you know exactly which change caused it. It’s much easier to fix one step than to debug a dozen combined changes that all went in at once.</p>
+<p><strong>53. Keep AI-driven changes small and incremental.</strong> It’s tempting to ask the AI for a giant refactor in one prompt, but it’s more effective to do it piece by piece. “Try smaller code changes, not entire project overhauls in one prompt,” a user advises (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=After%20every%20change%2C%20test%20the,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>). You’ll get more reliable outputs and fewer surprises by slicing big jobs into bite-sized prompts.</p>
+<p><strong>54. Spawn a new chat for new tasks (especially if the old one is long).</strong> Context window limits and accumulated conversation can confuse the AI. Starting a fresh Composer session after a while (e.g., when you move to a new feature or after a long debug session) can improve the AI’s responsiveness and accuracy (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Try%20smaller%20code%20changes%20not,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>). You can refer to earlier decisions as needed, but a fresh context avoids the baggage of the previous discussion.</p>
+<p><strong>55. Use conversation to plan, not just code.</strong> Don’t only give coding commands – try discussing your approach with the AI. For example: “I need to implement feature X. I’m thinking of doing it these ways… What do you think?” This can engage the AI in a higher-level planning mode. Users have noted that “Plan and talk more with the Composer” helps – treating it like a partner to bounce ideas off before diving into code leads to better results (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Try%20smaller%20code%20changes%20not,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>56. Write detailed prompts – specifics matter.</strong> The quality of the AI’s output is directly tied to how well you explain what you want. One person emphasized that prompts are the most important part of using LLMs (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Plan%20and%20talk%20more%20with,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>). Instead of “Fix this bug,” say “Fix the null pointer exception that occurs when doing X in <code class="docutils literal notranslate"><span class="pre">Y.java</span></code>.” Include any constraints or what <em>not</em> to change. The more precise you are, the less the AI has to guess.</p>
+<p><strong>57. Use high-level guidance to keep the AI focused.</strong> Before coding, you can instruct Cursor with something like: “We’re going to implement feature X. We’ll do it step by step. First, let’s do [Task 1].” This sets a clear agenda. The AI will often follow that structure and not jump ahead. Being explicit about the plan in the prompt can act like a project manager for the AI, keeping it on the rails (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Try%20smaller%20code%20changes%20not,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>58. Have a fallback model for when Claude is busy or limited.</strong> If you run out of “Fast” Claude quota or it becomes slow, switch to another model (like GPT-4 Turbo) for a while (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=Also%20again%2C%20if%20i%20use,if%20Claude%20is%20really%20slow">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>). One user did this when Claude throttled – GPT-Turbo was faster in that pinch. It may not be as smart for complex tasks, but for simpler ones it can keep you moving until Claude is available again.</p>
+<p><strong>59. Consider using OpenAI models via API in Cursor.</strong> Cursor lets you add custom models (API keys for OpenAI, etc.). Some users report good results with certain versions – for example, an older fine-tuned Claude 3.5 model (<code class="docutils literal notranslate"><span class="pre">claude-3-5-sonnet-20241022</span></code>) performed better for them than the default Claude 3.5 (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Hey%2C%20two%20things%3A">Cursor inefficient - Feedback - Cursor - Community Forum</a>). Experiment with model options if you have access; a different model or variant might click better with your project.</p>
+<p><strong>60. Don’t hesitate to use external tools alongside Cursor.</strong> If the AI is stuck on something like a package version error, you might solve it faster by quickly googling or checking official docs yourself. After that, feed the correct info to Cursor. Real users mention that AIs struggle with certain dependency issues (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=I%E2%80%99m%20venting%20a%20bit%20but,have%20enormous%20problems%20with%20this">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>) – a 2-minute manual check can save an hour of the AI thrashing around.</p>
+<p><strong>61. Mix and match AI and manual coding.</strong> Cursor doesn’t have to do <em>everything</em>. Let it handle the boilerplate and repetitive stuff, but you can take over for tricky logic or fine-tuning. The best outcome often comes from the AI doing the heavy lifting and you doing a pass to clean up or adjust. As one person implied: AI is great for “plumbing” but you still ensure the pipes are correctly connected (<a class="reference external" href="https://news.ycombinator.com/item?id=41988665#:~:text=I%20find%20that%20ai%20can,architecture%20and%20core%20libraries%2C%20no">I use cursor and its tab completion; while what it can do is mind blowing, in pr… | Hacker News</a>).</p>
+<p><strong>62. Use Cursor’s AI to generate documentation or comments.</strong> After writing code (with or without AI), you can ask Cursor’s chat to document it. For example, “Explain what this function does” or “Generate a docstring for this method.” It knows your code context, so it can produce pretty relevant documentation. This ensures you have at least basic docs, and you can edit from there.</p>
+<p><strong>63. Also use Cursor for code explanation and learning.</strong> If you come across code (perhaps written by the AI or a colleague) that you don’t understand, highlight it and ask Cursor to explain. The AI can act as a tutor, walking you through the logic. This helps you verify AI-generated code – by having it explain the code back to you, you can catch if something doesn’t make sense.</p>
+<p><strong>64. Leverage “local history” to recover from mistakes.</strong> Cursor keeps a local history of file changes. On Windows, for example, it stores prior versions of files in the AppData folder (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=1,520241022">Cursor inefficient - Feedback - Cursor - Community Forum</a>). You can also press Cmd/Ctrl+P in Cursor and type “Local history” to see backups. If the AI messes up a file badly, you can retrieve an earlier version easily using this feature.</p>
+<p><strong>65. Utilize community-shared rules and configs.</strong> The Cursor community has open-source rule sets for various frameworks (e.g., Angular, Django, etc.). Instead of writing your .cursorrules from scratch, you can find examples on resources like the Cursor Rules Directory (<a class="reference external" href="https://news.ycombinator.com/item?id=41346156#:~:text=perform%20even%20better%20based%20on,your%20language%20and%20framework">Show HN: Cursor AI Rules Directory (Open Source) | Hacker News</a>). Importing these can instantly tailor Cursor’s AI to your tech stack’s best practices as contributed by other developers.</p>
+<p><strong>66. When debugging, feed error messages to Cursor.</strong> If you get an error or stack trace, copy it into the chat and ask the AI what went wrong. Cursor’s AI is pretty good at reading errors and suggesting fixes. Many users essentially “pair-program” the debugging: run code -&gt; get error -&gt; show error to AI -&gt; implement suggested fix, and repeat. It saves time combing through logs alone (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=Or%20another%20typical%20situation%3A%20Claude,checked%20and%20verified%20it%E2%80%99s%20there">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>67. Tackle one error at a time.</strong> If there are multiple errors, don’t dump the entire error list on the AI at once. Start with the first error, address it with Cursor’s help, then move to the next. Users have found that focusing the AI on one problem at a time yields quicker fixes, whereas a long list might overwhelm it and lead to partial or confusing answers (<a class="reference external" href="https://forum.cursor.com/t/3-7-thinking-is-useless-in-last-days/66924#:~:text=doing%20over%20and%20over%20and,over%20same%20things%2C%20skipping%20debugs">3.7 thinking is useless in last days - Bug Reports - Cursor - Community Forum</a>) (<a class="reference external" href="https://forum.cursor.com/t/help-lost-newb-needs-advice-dealing-with-endless-version-related-errors-and-react-type-and-typscript-errors-and-cursor-context/52050#:~:text=Or%20another%20typical%20situation%3A%20Claude,checked%20and%20verified%20it%E2%80%99s%20there">Help. Lost newb needs advice dealing with endless Version related errors and React type and typscript errors and cursor context - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>68. If project rules aren’t kicking in, explicitly invoke them.</strong> Sometimes Cursor doesn’t apply your <code class="docutils literal notranslate"><span class="pre">.cursorrules</span></code> automatically. A user discovered that ending a prompt with “following &#64;.cursorrules” forced the AI to load the rules (<a class="reference external" href="https://forum.cursor.com/t/rules-dont-apply-unless-i-say-follow-cursorrules/63516#:~:text=root%20folder%20,following%20%40.cursorrules">Rules don’t apply unless I say “ follow &#64;.cursorrules “ - Bug Reports - Cursor - Community Forum</a>) (<a class="reference external" href="https://forum.cursor.com/t/rules-dont-apply-unless-i-say-follow-cursorrules/63516#:~:text=It%20should%20fail%20to%20follow">Rules don’t apply unless I say “ follow &#64;.cursorrules “ - Bug Reports - Cursor - Community Forum</a>). So if you suspect the AI is ignoring your guidelines, literally tell it to follow them in the chat – it can make a difference.</p>
+<p><strong>69. Keep Cursor updated (but monitor changes).</strong> New versions of Cursor often come with improvements to the AI models and features. Users observed Claude 3.7 getting better after some updates (<a class="reference external" href="https://forum.cursor.com/t/max-mode-for-claude-3-7-out-now/65698#:~:text=Excellent%21%21">Max Mode for Claude 3.7 - Out Now! -  Featured Discussions - Cursor - Community Forum</a>). Upgrading can fix issues (e.g., rules not working, model improvements). Just read the changelogs in case something about your workflow (like rule format) needs adjusting.</p>
+<p><strong>70. Edit new rule files in VSCode or externally.</strong> If you’re using the <code class="docutils literal notranslate"><span class="pre">.cursor/rules</span></code> system introduced in Cursor 0.45+, note that the in-app editor for these rule files is currently glitchy. One detailed guide recommends editing the <code class="docutils literal notranslate"><span class="pre">.mdc</span></code> rule files in an external editor because the Cursor UI might not save or update them correctly (<a class="reference external" href="https://forum.cursor.com/t/a-deep-dive-into-cursor-rules-0-45/60721#:~:text=Editing%20Limitations">A Deep Dive into Cursor Rules (&gt; 0.45) - Discussion - Cursor - Community Forum</a>). You can still use them in Cursor; just edit them with a normal text editor for now.</p>
+<p><strong>71. Share your rule files with your team.</strong> Since <code class="docutils literal notranslate"><span class="pre">.cursor/rules/*.mdc</span></code> files live in your project folder, they can be checked into git. Teams collaborating on a project can all use the same AI rules by pulling from the repo (<a class="reference external" href="https://forum.cursor.com/t/a-deep-dive-into-cursor-rules-0-45/60721#:~:text=Why%20Store%20Them%20in%20">A Deep Dive into Cursor Rules (&gt; 0.45) - Discussion - Cursor - Community Forum</a>). This means everyone gets consistent AI assistance aligned to your project’s guidelines – a huge boon for teamwork.</p>
+<p><strong>72. Always plan for rollback – AI changes are not infallible.</strong> Because AI changes can introduce subtle bugs, use approaches like feature branches and frequent commits so you can easily undo or isolate AI contributions. One user in frustration asked “don’t you have a backup?” (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Sorry%20to%20hear%20that,never%20break%20a%20project%20completly">Cursor inefficient - Feedback - Cursor - Community Forum</a>) – making the point that you should never be stuck if AI goes wrong. Proper source control and backups are your safety net.</p>
+<p><strong>73. The first AI solution is rarely the final one.</strong> Manage expectations: the AI might get things 95% wrong on the first try (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=failure%20rate,to%20keep%20going%20with%20this">Cursor inefficient - Feedback - Cursor - Community Forum</a>). Don’t be discouraged; use that as information on what to fix or how to ask differently. Many experienced users note that you need to iterate with the AI and gradually zero in on the solution – it’s rarely one-and-done, especially on complex tasks.</p>
+<p><strong>74. Use Cursor as a pair programmer, not an oracle.</strong> Those who get the most out of Cursor treat it as a partner to collaborate with. They review its code, test it, give feedback, and guide it, much like working with a human junior dev. This interactive mindset – rather than hoping the AI will perfectly solve things on its own – leads to better productivity gains (<a class="reference external" href="https://news.ycombinator.com/item?id=41988665#:~:text=My%20theory%20is%20the%20willingness,productivity%20boost%20has%20been%20great">I use cursor and its tab completion; while what it can do is mind blowing, in pr… | Hacker News</a>) (<a class="reference external" href="https://news.ycombinator.com/item?id=41988665#:~:text=I%20use%20AI%20autocomplete%200,with%20me%20reviewing%20and%20coaching">I use cursor and its tab completion; while what it can do is mind blowing, in pr… | Hacker News</a>).</p>
+<p><strong>75. Write down successful prompt patterns.</strong> If you discover a phrasing or technique that consistently works (for example, “summarize the plan then implement” or a certain style of asking for regex), keep a snippet library. Many users develop a few go-to prompts for recurring situations. Having these ready saves time and ensures you communicate effectively with the AI each time (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Plan%20and%20talk%20more%20with,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>76. Don’t blindly accept code – verify it.</strong> Even if Cursor provides a seemingly good solution, run the code and verify the logic. As one programmer noted, they double and triple-check AI-written code (<a class="reference external" href="https://news.ycombinator.com/item?id=41988665#:~:text=I%20find%20that%20ai%20can,architecture%20and%20core%20libraries%2C%20no">I use cursor and its tab completion; while what it can do is mind blowing, in pr… | Hacker News</a>). This might involve writing a quick test or adding some logging. It’s faster to catch mistakes immediately than to debug later what the AI introduced.</p>
+<p><strong>77. Ask the AI to explain its fix if unsure.</strong> If Cursor suggests a non-obvious solution, you can follow up with, “Can you explain why this fixes the issue?” The AI can provide reasoning. This helps you learn and verify that the fix is legitimate. It also exposes any faulty reasoning – if the explanation doesn’t make sense, you know to be skeptical of the code.</p>
+<p><strong>78. Keep the scope of changes narrow to maintain control.</strong> When working with AI, try to avoid multi-faceted prompts like “Refactor the code and add a new feature and also optimize performance.” Each of those is a separate effort. Community advice is to handle them one at a time, so you can test and validate each before proceeding. This modular approach prevents a cascade of new bugs (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=After%20every%20change%2C%20test%20the,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>79. Collaborate through conversation, not just commands.</strong> Remember you can ask the AI questions too. For example, “What do you think is causing this bug?” or “Is there a better way to do X?” This leverages the AI’s analytical side. Some users effectively use Cursor’s chat to rubber-duck problems – the act of asking the AI in detail often clarifies their own understanding and leads to a solution (with or without the AI’s direct fix).</p>
+<p><strong>80. Use Cursor’s strengths for bulk changes.</strong> If you need to update multiple instances of a pattern (say rename a function across files, or update API usage everywhere), Cursor’s AI is great at repetitive edits. You can prompt something like “Apply this change to all occurrences in the project” – it may use its knowledge of your codebase to do so, or guide you through each. This is far faster than manual find-replace especially if each instance needs slight adjustment.</p>
+<p><strong>81. Curb the AI’s creativity when you need precision.</strong> By default, models like Claude may get “creative” and infer what you <em>might</em> want, sometimes incorrectly. If you require a very exact change, phrase your prompt to leave no wiggle room. For instance: “Only change X to Y, and do not alter anything else.” Being that direct can stop the AI from introducing unintended modifications (<a class="reference external" href="https://forum.cursor.com/t/observations-on-claude-sonnet-3-7/65040#:~:text=In%20the%20latest%20versions%20of,to%20a%20loss%20of%20control">Observations on Claude Sonnet 3.7: - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>82. Conversely, let the AI be creative for brainstorming.</strong> If you’re in an early stage (designing a solution, or not sure how to implement something), you can ask Cursor open-ended questions. E.g., “What are some approaches to implement feature Y?” or “Generate a few different solutions for this algorithm with pros/cons.” Users use Cursor not only to write code, but to brainstorm ideas that they then choose from and refine.</p>
+<p><strong>83. Utilize Cursor’s diff review interface.</strong> When Cursor proposes changes, you typically see a diff (code changes highlighted). Take advantage of that: review the diff carefully before accepting. This is where you catch if the AI is deleting something it shouldn’t, or adding nonsense. It’s much easier to fix by saying “Don’t remove that part” when you see it in diff, than after you’ve applied and forgot what changed.</p>
+<p><strong>84. Always test the “happy path” after AI changes.</strong> Run through the primary use-case of your app or function once the AI makes a change. Many users note the AI might handle the main scenario well but can introduce edge-case bugs. By testing the common path immediately, you at least ensure the basic functionality isn’t broken, which is a good sanity check before moving on.</p>
+<p><strong>85. Don’t let the AI “guess” for too long on environment issues.</strong> If Cursor is struggling with environment-specific errors (like build config, package version, etc.), it might try a lot of guesses. It can be more efficient for you to step in, resolve the environment issue manually (since you have actual access to logs, etc.), and then let the AI continue with feature work. Use the AI where it adds value, not on tasks where a human intervention can resolve a deadlock quickly (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=failure%20rate,to%20keep%20going%20with%20this">Cursor inefficient - Feedback - Cursor - Community Forum</a>).</p>
+<p><strong>86. Make use of the “report issue” or feedback features.</strong> If you encounter really bad AI behavior (like it consistently does something wrong), use Cursor’s feedback tools to send a report (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Could%20you%20report%20the%20bad,us%20understand%20how%20to%20fix">Cursor inefficient - Feedback - Cursor - Community Forum</a>). The dev team actively improves the models with such feedback. In the meantime, you can often find workarounds via the forum or these tips, but reporting helps everyone as the product evolves.</p>
+<p><strong>87. If rules are critical, mention them in your prompt.</strong> As a workaround for rule application issues, explicitly referencing them (e.g., “according to our coding rules,…”) in your query can remind the AI. One user essentially had to tell the AI “follow the project rules” to get them working (<a class="reference external" href="https://forum.cursor.com/t/rules-dont-apply-unless-i-say-follow-cursorrules/63516#:~:text=root%20folder%20,following%20%40.cursorrules">Rules don’t apply unless I say “ follow &#64;.cursorrules “ - Bug Reports - Cursor - Community Forum</a>). Until the rules system is foolproof, reinforcing them in chat can help.</p>
+<p><strong>88. Use shared team rules to enforce standards.</strong> If multiple developers use Cursor on a project, agree on a set of Cursor rules for that project and share them in the repo. That way, the AI will apply the same guidelines (naming conventions, architecture patterns, etc.) for everyone, leading to consistent code generation no matter who’s driving the AI (<a class="reference external" href="https://forum.cursor.com/t/a-deep-dive-into-cursor-rules-0-45/60721#:~:text=Why%20Store%20Them%20in%20">A Deep Dive into Cursor Rules (&gt; 0.45) - Discussion - Cursor - Community Forum</a>).</p>
+<p><strong>89. If the AI output is too verbose or complex, ask for simplification.</strong> You can tell Cursor, “simplify this code” or “can you refactor this to be more concise/clear.” Often, it will streamline its own earlier output. This is useful if the first pass works but is hard to read. The AI can act as a second set of eyes to improve code clarity on request (just verify it doesn’t change functionality while simplifying).</p>
+<p><strong>90. Consider using MCP (Model Context Protocol) servers for advanced use cases.</strong> Cursor supports MCP servers that let the AI perform actions like editing the filesystem or running code. If you’re technically inclined, you can set up these to allow Cursor’s AI to, say, execute your code or tests as it writes them. Some folks have experimented with custom MCP servers to extend Cursor’s capabilities (<a class="reference external" href="https://news.ycombinator.com/item?id=43412844#:~:text=A,AI%2Faider%2Fblob%2Fdd4d2420df51dc29c2aed">For anyone trying this at home, if you want a starting point, you could use OP’s… | Hacker News</a>). This is experimental, but it’s a frontier for power users who want the AI to not only write code but also run and validate it within Cursor.</p>
+<p><strong>91. Remember that AI can hallucinate nonexistent APIs or functions.</strong> If Cursor suggests using a function or endpoint that you’ve never heard of, double-check if it actually exists. It might be pulling from training data and not your actual code. When this happens, guide it back: e.g., “That function doesn’t exist in our code, please implement it or use an alternative.” This keeps the AI grounded in reality.</p>
+<p><strong>92. Use Cursor’s AI for codebase Q&amp;A.</strong> Beyond coding, you can ask questions like, “Where is the logic for user authentication?” or “Which function handles the payment processing?” The AI, having context of your codebase (if indexed), can answer or at least point you to relevant files. This is a quick way to get oriented in a new or large project.</p>
+<p><strong>93. Embrace trial and error – it’s part of the process.</strong> Coding with AI often involves some back-and-forth: the AI might not get it right immediately, and you might need to try a couple of different prompts or approaches. Community members advise patience; the productivity boost comes after a bit of an initial learning curve in communicating with the AI (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=failure%20rate,to%20keep%20going%20with%20this">Cursor inefficient - Feedback - Cursor - Community Forum</a>) (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Plan%20and%20talk%20more%20with,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>). Stick with it, and you’ll start to know how to prompt it better.</p>
+<p><strong>94. Use AI to generate multiple options.</strong> If you’re unsure about the best approach, you can ask Cursor something like, “Give me two different implementations for this function.” This way, you can compare the solutions it offers and pick the best parts of each. It’s like getting a second (and third) opinion in a single go.</p>
+<p><strong>95. Keep an eye on the usage dashboard.</strong> The Cursor interface has a usage tracker for API calls/costs. Check it periodically especially when using expensive models. As one user noted, seeing the breakdown (e.g., many “tool” calls racked up cost) alerted them to change strategy (<a class="reference external" href="https://forum.cursor.com/t/will-the-3-7-max-bankrupt-us/65861#:~:text=I%E2%80%99m%20satisfied%20with%203,from%20linter%20error%20tool%20calling">Will the 3.7 MAX bankrupt us? - Discussion - Cursor - Community Forum</a>). If you notice a spike, you might decide to switch models or reduce how much you let the AI auto-run.</p>
+<p><strong>96. Update Cursor and model settings for improvements.</strong> If the AI is underperforming, make sure you’re on the latest Cursor version and model. The dev team often tweaks prompts and model versions in updates, which can significantly improve behavior. A user observed Claude’s attitude issues were toned down after a fix, for example (<a class="reference external" href="https://forum.cursor.com/t/max-mode-for-claude-3-7-out-now/65698#:~:text=Excellent%21%21">Max Mode for Claude 3.7 - Out Now! -  Featured Discussions - Cursor - Community Forum</a>). So, staying updated can magically solve issues that you struggled with earlier.</p>
+<p><strong>97. Use external editors alongside Cursor when needed.</strong> Sometimes it’s easier to do certain edits in a text editor/IDE (especially large multi-file changes or complex merge conflicts) and then come back to Cursor. Cursor won’t be offended – you can always drag your manually edited file back into chat and let the AI continue from there if needed. Think of Cursor as part of your toolkit, not the entire toolbox.</p>
+<p><strong>98. Edit Cursor’s project rule files externally for now.</strong> As mentioned, the <code class="docutils literal notranslate"><span class="pre">.mdc</span></code> rule files in <code class="docutils literal notranslate"><span class="pre">.cursor/rules</span></code> can be edited with VS Code or any editor. Doing so allows you to leverage version control on them too. Because the integrated editor is a bit buggy, you’ll ensure your rules are correctly written by using a standard editor (<a class="reference external" href="https://forum.cursor.com/t/a-deep-dive-into-cursor-rules-0-45/60721#:~:text=Editing%20Limitations">A Deep Dive into Cursor Rules (&gt; 0.45) - Discussion - Cursor - Community Forum</a>). After editing, you can reload Cursor to apply them.</p>
+<p><strong>99. Use Git to its fullest – commit AI changes logically.</strong> After a successful AI-assisted change, commit it with a message (you can even ask Cursor to suggest a commit message!). Treat each AI session or fix as a commit unit. This makes it easy to review later and to revert if necessary. Some users even have Cursor auto-commit each change (via external tools) (<a class="reference external" href="https://news.ycombinator.com/item?id=43412844#:~:text=I%27m%20going%20to%20try%20out,for%20Cursor%2C%20but%20I%27m%20curious">For anyone trying this at home, if you want a starting point, you could use OP’s… | Hacker News</a>), which squashes multiple AI micro-commits into one – find a workflow that keeps your history clean and reversible.</p>
+<p><strong>100. Treat Cursor’s AI as an assistant that amplifies <em>your</em> skills.</strong> The developers and many users stress that Cursor won’t replace understanding code – but it can speed up writing and refactoring it (<a class="reference external" href="https://news.ycombinator.com/item?id=41988665#:~:text=My%20theory%20is%20the%20willingness,productivity%20boost%20has%20been%20great">I use cursor and its tab completion; while what it can do is mind blowing, in pr… | Hacker News</a>). Use it to do the rote stuff, use it to brainstorm, use it to catch obvious bugs, but continue to apply your engineering judgment. Those who pair their knowledge with Cursor’s capabilities (and limitations) are seeing the biggest productivity boosts, effectively coding at “the speed of thought” with an AI pair programmer at their side (<a class="reference external" href="https://www.cursor.com/#:~:text=Cursor%20is%20at%20least%20a,for%20me%20and%20my%20team">Cursor - The AI Code Editor</a>) (<a class="reference external" href="https://forum.cursor.com/t/cursor-inefficient/53280#:~:text=Plan%20and%20talk%20more%20with,help%20you%20for%20future%20projects">Cursor inefficient - Feedback - Cursor - Community Forum</a>).</p>
+</section>
+
+<div class="section ablog__blog_comments">
+     
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+     
+    <a href="../deepgemm/">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Investigating the DeepSeek DeepGEMM Release</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+  
+</div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/posts/2025/100-tips-tricks-hacks-and-methods-users-of-cursor-have-for-coding-with-ai-in-cursor.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Kasper Junge.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

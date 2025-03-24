@@ -7,7 +7,7 @@ category: AI Coding
 language: English
 ---
 
-# 100 Best Tips, Tricks, Hacks, and Methods for Coding with AI in Cursor
+# 100 Tips, Tricks, Hacks, and Methods for Coding with AI in Cursor
 
 Okay, full disclosure: This article was generated using ChatGPT Deep Research, based on instructions to review and paraphrase recent discussions from Cursor forums and Hacker News comments. All tips were synthesized from community insights to provide practical, up-to-date advice. However, I found it super useful to read, so I'm sharing it on my blog for others to read.
 
