@@ -9,13 +9,13 @@ language: English
 
 # Screw iOS — Build Your AI Agent App on SMS
 
-What will be the next big platform for the emerging language interface we’re starting to see with AI agents and standards like [MCP](https://www.anthropic.com/news/model-context-protocol)? 🤔
+What will be the next big platform for the emerging interface we’re starting to see with AI agents and standards like [MCP](https://www.anthropic.com/news/model-context-protocol)? 🤔
 
-Will it be ChatGPT, iOS, Android, Claude, Chrome, or something else?
+Will it be ChatGPT, iOS, Android, Claude, Chrome, etc.?
 
 Actually, we can zoom out even further.
 
-Because the new interface *is* language.
+Because the new interface is language.
 
 That means anything capable of exchanging text messages or voice can serve as a platform for this new interface.
 
