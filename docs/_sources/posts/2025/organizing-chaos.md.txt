@@ -1,0 +1,21 @@
+---
+blogpost: true
+date: Apr 02, 2025
+author: Kasper Junge
+location: Denmark
+category: Productivity, Work
+language: English
+---
+
+For mig, kan livet ofte opleves som flyvsk kaos i mit hoved.
+
+Arbejde, privatliv, sideprojekter, osv. 
+
+Jeg har i mange år tænkt over hvordan jeg kunne lave et system, som kan hjælpe mig til at håndtere kaos.
+
+Jeg har prøvet mange apps og systemer, som andre siger de har haft gode erfaringer med.
+
+De har dog alle et problem.
+
+De antager at mit specifkke kaos fungere på en bestemt måde.
+
