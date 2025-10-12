@@ -121,6 +121,27 @@ def render_post(year: str, src: Path) -> Path:
     return out_html
 
 
+def render_page(src: Path) -> Path:
+    """Render a generic Markdown page to docs/<slug>/index.html using the same template."""
+    slug = src.stem
+    out_dir = DOCS_DIR / slug
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_html = out_dir / "index.html"
+    cmd = [
+        "pandoc",
+        str(src),
+        "--standalone",
+        "--from",
+        "markdown+yaml_metadata_block",
+        "--template",
+        str(TEMPLATE),
+        "--output",
+        str(out_html),
+    ]
+    subprocess.run(cmd, check=True)
+    return out_html
+
+
 def render_home(posts_info: List[Dict[str, str]]) -> None:
     items: List[str] = []
     for p in posts_info[:10]:
@@ -129,7 +150,8 @@ def render_home(posts_info: List[Dict[str, str]]) -> None:
         items.append(f"<li><a href='{url}'>{title}</a></li>")
     html_doc = (
         "<html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>"
-        "<body><h1>Kasper Junge Blog</h1><ul>" + "\n".join(items) + "</ul></body></html>"
+        "<body><header class='site-header'><div class='inner'><a href='/'>blog</a> <a href='/about/'>about</a></div></header>"
+        "<main class='container'><h1>Kasper Junge Blog</h1><ul>" + "\n".join(items) + "</ul></main></body></html>"
     )
     (DOCS_DIR / "index.html").write_text(html_doc, encoding="utf-8")
 
@@ -149,7 +171,8 @@ def render_year_archives(posts_info: List[Dict[str, str]]) -> None:
         out_dir.mkdir(parents=True, exist_ok=True)
         html_doc = (
             "<html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>"
-            f"<body><h1>{year}</h1><ul>" + "\n".join(items) + "</ul></body></html>"
+            f"<body><header class='site-header'><div class='inner'><a href='/'>blog</a> <a href='/about/'>about</a></div></header>"
+            f"<main class='container'><h1>{year}</h1><ul>" + "\n".join(items) + "</ul></main></body></html>"
         )
         (out_dir / "index.html").write_text(html_doc, encoding="utf-8")
 
@@ -193,6 +216,11 @@ def main() -> None:
                 "sort_ts": sort_ts,
             }
         )
+    # Render standalone pages (e.g., About)
+    pages_dir = Path("pages")
+    if pages_dir.exists():
+        for src in sorted(pages_dir.glob("*.md")):
+            render_page(src)
     # Copy static assets after posts are rendered
     copy_assets()
     # Sort posts by descending recency

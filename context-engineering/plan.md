@@ -1,343 +1,330 @@
-# Migrate blog to minimal Python + Pandoc static site (preserve URLs)
+# Blog Styling (B/W) and About Page Implementation Plan
 
 ## Overview
-Replace Sphinx/ABlog with a minimal Python-driven builder that uses Pandoc to render posts while preserving existing public URLs under `/posts/<YYYY>/<slug>/` and continuing to publish from `docs/` for GitHub Pages.
+Implement a minimal black/white site-wide style via a single CSS file and add a simple Markdown-based About page, with a consistent header containing links to “blog” and “about”.
 
 ## Current State Analysis
-- Generator: Sphinx + ABlog configured in `conf.py`.
-- Sources: RST with `.. post::` and Markdown with YAML front matter in `posts/<year>/`.
-- Output: Built files at `docs/` with per-post pages at `docs/posts/<year>/<slug>/index.html`.
-- Tooling: Local scripts `serve.py` and `deploy.py` call `ablog` (via `uv`).
-
-Key files and lines observed:
-- `conf.py:199-206` — ABlog/Myst extensions configured.
-- `conf.py:208-214` — `source_suffix` supports `.rst` and `.md`.
-- `conf.py:111-121` — `html_sidebars` includes ABlog components.
-- `serve.py:4-9` — invokes `ablog build` and `ablog serve`.
-- `deploy.py:4-24` — invokes `ablog build` and `ablog deploy`.
-- Posts examples: `posts/2025/how-i-created-a-free-blog-using-python-and-github-pages.rst`, `posts/2025/how-mcp-or-similar-standards-could-change-the-way-we-use-software-with-ai.md`.
-- Output examples: `docs/posts/2025/<slug>/index.html`.
-
-## Desired End State
-- A single Python script builds the site:
-  - Reads `posts/<year>/*.{md,rst}`
-  - Emits `docs/posts/<year>/<slug>/index.html` using Pandoc and a minimal HTML template
-  - Generates a simple `docs/index.html` and yearly index pages `docs/blog/<year>/index.html`
-- Existing URLs remain unchanged; GitHub Pages continues serving from `docs/`.
-- ABlog/Sphinx configs remain in repo for easy rollback, but not used by scripts.
+- Static site generator in `tools/build.py` renders posts from `posts/YYYY/*.md|.rst` to `docs/posts/YYYY/<slug>/index.html` using Pandoc and the template `templates/base.html`.
+- Both the Pandoc template and generated index pages reference a global stylesheet at `/_static/theme.css`, but no `docs/_static/` directory exists.
+- No About page is generated; some legacy pages link to `/about/`, but `docs/about/` does not exist.
 
 Key Discoveries:
-- `conf.py:208-214` shows both RST and MD inputs; we must support both.
-- `docs/posts/<year>/<slug>/index.html` is canonical for posts; we will replicate this exactly.
-- `serve.py:5-6` and `deploy.py:10` are the only places directly calling ABlog; swapping these preserves workflow.
+- Stylesheet link in template:
+```1:14:/Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/templates/base.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$title$</title>
+    <link rel="stylesheet" href="/_static/theme.css" />
+  </head>
+  <body>
+    <main class="container">
+      $body$
+    </main>
+  </body>
+  </html>
+```
+- Home/year pages also reference the same stylesheet:
+```124:135:/Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/tools/build.py
+def render_home(posts_info: List[Dict[str, str]]) -> None:
+    items: List[str] = []
+    for p in posts_info[:10]:
+        url = f"/posts/{p['year']}/{p['slug']}/"
+        title = html.escape(p["title"]) if p.get("title") else p["slug"]
+        items.append(f"<li><a href='{url}'>{title}</a></li>")
+    html_doc = (
+        "<html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>"
+        "<body><h1>Kasper Junge Blog</h1><ul>" + "\n".join(items) + "</ul></body></html>"
+    )
+    (DOCS_DIR / "index.html").write_text(html_doc, encoding="utf-8")
+```
+```149:155:/Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/tools/build.py
+        out_dir.mkdir(parents=True, exist_ok=True)
+        html_doc = (
+            "<html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>"
+            f"<body><h1>{year}</h1><ul>" + "\n".join(items) + "</ul></body></html>"
+        )
+        (out_dir / "index.html").write_text(html_doc, encoding="utf-8")
+```
+
+## Desired End State
+- A global, minimal black/white stylesheet exists at `docs/_static/theme.css` and is served by GitHub Pages without additional build steps.
+- All pages (posts, home, yearly archives) show a simple header with links: “blog” (to `/`) and “about” (to `/about/`).
+- An About page is authored in Markdown and published to `docs/about/index.html` using the same Pandoc template.
 
 ## What We're NOT Doing
-- No tag/category/author/language taxonomy pages (for now)
-- No feeds (RSS/Atom) generation
-- No removal of ABlog/Sphinx files or theme assets yet
-- No CI changes; continue to deploy from local script and Git pushes
+- No complex theme frameworks, no JavaScript-based theming.
+- No refactor of the URL structure or content pipeline beyond what’s needed for About.
+- No additional asset pipelines beyond committing `docs/_static/theme.css` directly.
 
 ## Implementation Approach
-- Keep scope minimal: a Python builder orchestrates Pandoc CLI calls.
-- Derive `year` from parent directory and `slug` from filename stem to preserve path structure.
-- Use a lightweight Pandoc HTML template (`templates/base.html`) and a single CSS file under `docs/_static/theme.css`.
-- Generate simple indices with vanilla Python (no templating engine dependency).
-- Maintain ABlog/Sphinx alongside for immediate rollback.
+- Keep styling simple by committing `docs/_static/theme.css` to the repo so existing references resolve immediately.
+- Extend the Pandoc template and generated index pages to include a minimal nav header.
+- Add a `pages/about.md` source and teach the builder to render `pages/*.md` to `docs/<slug>/index.html`.
 
 ---
 
-## Phase 1: Scaffold minimal builder, template, and CSS
+## Phase 1: Add global black/white stylesheet
 
 ### Overview
-Introduce a Python builder and minimal HTML template/CSS without modifying existing serve/deploy scripts. This validates content discovery and Pandoc rendering.
+Create a minimal stylesheet at `docs/_static/theme.css` that defines base typography, layout, and a simple header. This requires no build changes and leverages existing `<link rel="stylesheet" href="/_static/theme.css" />`.
 
 ### Changes Required
 
-#### 1. Python builder script
-**File**: `tools/build.py` (new)
-**Changes**:
-- [x] Create a script that:
-  - [x] Discovers posts: `posts/<year>/*.{md,rst}`
-  - [x] Parses `year` from the parent folder name and `slug` from the filename stem
-  - [x] Infers input format for Pandoc: `markdown+yaml_metadata_block` for `.md`, `rst` for `.rst`
-  - [x] Renders to `docs/posts/<year>/<slug>/index.html` using `templates/base.html`
-  - [x] Extracts `title` and `date` from YAML front matter (MD) or first heading/`.. post::` line (RST) for indices
-  - [x] Generates a minimal `docs/index.html` (recent posts) and `docs/blog/<year>/index.html`
+#### 1. Create stylesheet file
+- File: `docs/_static/theme.css`
+- Create directories as needed and add minimal styles:
+```css
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; color: #000; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; }
+@media (prefers-color-scheme: dark) { html, body { background: #000; color: #fff; } a { color: #fff; } }
+.container { max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+header.site-header { border-bottom: 1px solid currentColor; }
+header.site-header .inner { max-width: 720px; margin: 0 auto; padding: 0.75rem 1rem; display: flex; gap: 1rem; align-items: center; }
+header.site-header a { color: inherit; text-decoration: none; }
+header.site-header a:hover { text-decoration: underline; }
+main.container h1, main.container h2, main.container h3 { line-height: 1.25; }
+ul { padding-left: 1.25rem; }
+```
 
-  Example structure:
-  ```python
-  from pathlib import Path
-  import subprocess, re, html
+### Success Criteria
 
-  POSTS_DIR = Path('posts')
-  DOCS_DIR = Path('docs')
-  TEMPLATE = Path('templates/base.html')
+#### Automated Verification
+- [x] Build succeeds: `uv run python tools/build.py` (exit code 0).
+- [x] CSS file exists post-build: `test -f docs/_static/theme.css`.
 
-  def discover_posts():
-      for year_dir in sorted((POSTS_DIR).glob('[0-9][0-9][0-9][0-9]')):
-          for src in sorted(year_dir.glob('*.*')):
-              if src.suffix.lower() in {'.md', '.rst'}:
-                  yield year_dir.name, src
+#### Manual Verification
+- [ ] Visit `/` and any post page; styles apply (fonts, spacing, colors) without 404s for `/_static/theme.css`.
 
-  def derive_slug(src_path: Path) -> str:
-      return src_path.stem
+---
 
-  def extract_meta(src_path: Path) -> dict:
-      text = src_path.read_text(encoding='utf-8')
-      # Minimal MD YAML front matter parser
-      if src_path.suffix.lower() == '.md' and text.startswith('---'):
-          m = re.search(r'^---\n([\s\S]+?)\n---\n', text)
-          if m:
-              fm = m.group(1)
-              title = re.search(r'^title:\s*(.*)$', fm, re.MULTILINE)
-              date = re.search(r'^date:\s*(.*)$', fm, re.MULTILINE)
-              return {
-                  'title': title.group(1).strip() if title else None,
-                  'date': date.group(1).strip() if date else None,
-              }
-      # Fallback: first ATX heading or RST title underline
-      h1 = re.search(r'^#\s*(.+)$', text, re.MULTILINE)
-      if h1:
-          return {'title': h1.group(1).strip(), 'date': None}
-      return {'title': src_path.stem.replace('-', ' ').title(), 'date': None}
+## Phase 2: Add header with “blog” and “about” links
 
-  def render_post(year: str, src: Path):
-      slug = derive_slug(src)
-      out_dir = DOCS_DIR / 'posts' / year / slug
-      out_dir.mkdir(parents=True, exist_ok=True)
-      out_html = out_dir / 'index.html'
+### Overview
+Inject a minimal header into both the Pandoc template (for posts) and the generated index/year pages.
 
-      input_format = 'markdown+yaml_metadata_block' if src.suffix.lower() == '.md' else 'rst'
-      cmd = [
-          'pandoc', str(src),
-          '--standalone',
-          '--from', input_format,
-          '--template', str(TEMPLATE),
-          '--metadata-file', '-',  # provision for future if needed
-          '--output', str(out_html),
-      ]
-      subprocess.run(cmd, check=True)
-      return out_html
+### Changes Required
 
-  def build_indices(posts_info):
-      # posts_info: list of dict(title, date, year, slug)
-      # Generate docs/index.html and docs/blog/<year>/index.html
-      pass
-
-  def main():
-      posts_info = []
-      for year, src in discover_posts():
-          meta = extract_meta(src)
-          out_html = render_post(year, src)
-          posts_info.append({
-              'title': meta.get('title') or src.stem,
-              'date': meta.get('date'),
-              'year': year,
-              'slug': src.stem,
-              'path': out_html,
-          })
-      build_indices(posts_info)
-
-  if __name__ == '__main__':
-      main()
-  ```
-
-#### 2. Pandoc HTML template
-**File**: `templates/base.html` (new)
-**Changes**:
-- [x] Minimal HTML5 shell with a content placeholder compatible with Pandoc template variables; include link to `/_static/theme.css`.
-
-  Example structure:
-  ```html
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>$title$</title>
-      <link rel="stylesheet" href="/_static/theme.css" />
-    </head>
-    <body>
-      <main class="container">
-        $body$
-      </main>
-    </body>
+#### 1. Update Pandoc template header
+- File: `templates/base.html`
+- Insert the header after the `<body>` tag and before `<main class="container">`.
+- Current context:
+```1:14:/Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/templates/base.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$title$</title>
+    <link rel="stylesheet" href="/_static/theme.css" />
+  </head>
+  <body>
+    <main class="container">
+      $body$
+    </main>
+  </body>
   </html>
-  ```
+```
+- Edit at line 9 (after `</head>` and `<body>`):
+```html
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a href="/">blog</a>
+        <a href="/about/">about</a>
+      </div>
+    </header>
+    <main class="container">
+```
 
-#### 3. Minimal CSS
-**File**: `docs/_static/theme.css` (new)
-**Changes**:
-- [x] Add a tiny stylesheet to provide basic typography and spacing.
+#### 2. Update home page generation
+- File: `tools/build.py`
+- Modify `render_home()` body to include the same header. Current lines:
+```124:135:/Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/tools/build.py
+    html_doc = (
+        "<html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>"
+        "<body><h1>Kasper Junge Blog</h1><ul>" + "\n".join(items) + "</ul></body></html>"
+    )
+```
+- Replace with:
+```html
+    html_doc = (
+        "<html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>"
+        "<body><header class='site-header'><div class='inner'><a href='/'>blog</a> <a href='/about/'>about</a></div></header>"
+        "<main class='container'><h1>Kasper Junge Blog</h1><ul>" + "\n".join(items) + "</ul></main></body></html>"
+    )
+```
+
+#### 3. Update yearly archive generation
+- File: `tools/build.py`
+- Modify `render_year_archives()` body similarly. Current lines:
+```149:155:/Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/tools/build.py
+        html_doc = (
+            "<html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>"
+            f"<body><h1>{year}</h1><ul>" + "\n".join(items) + "</ul></body></html>"
+        )
+```
+- Replace with:
+```html
+        html_doc = (
+            "<html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>"
+            f"<body><header class='site-header'><div class='inner'><a href='/'>blog</a> <a href='/about/'>about</a></div></header>"
+            f"<main class='container'><h1>{year}</h1><ul>" + "\n".join(items) + "</ul></main></body></html>"
+        )
+```
 
 ### Success Criteria
 
-#### Automated Verification:
-- [x] `pandoc -v` runs successfully
-- [x] `uv run python tools/build.py` completes without error
-- [x] At least one output file exists, e.g., `docs/posts/2025/how-i-created-a-free-blog-using-python-and-github-pages/index.html`
+#### Automated Verification
+- [x] Build succeeds: `uv run python tools/build.py`.
+- [x] Grep confirms header in generated pages:
+  - `rg "site-header" docs/ -n` returns matches in `docs/index.html` and `docs/blog/*/index.html`.
 
-#### Manual Verification:
-- [ ] Open the generated HTML files in a browser; content renders
-- [ ] Confirm per-post URL structure under `docs/posts/<year>/<slug>/index.html`
+#### Manual Verification
+- [ ] Visit a post page, `/`, and `/blog/2025/`; header shows “blog” and “about”.
+- [ ] Header styling applies from `theme.css`.
 
 ---
 
-## Phase 2: Deterministic URL mapping and asset handling
+## Phase 3: Add Markdown About page and build support for pages
 
 ### Overview
-Guarantee output paths exactly mirror existing scheme and ensure static assets are copied/preserved.
+Author `pages/about.md` in Markdown and extend the builder to render `pages/*.md` to `docs/<slug>/index.html` via Pandoc and the same template.
 
 ### Changes Required
 
-#### 1. Enforce path scheme and slug behavior
-**File**: `tools/build.py`
-**Changes**:
-- [x] Ensure output directory structure is `docs/posts/<year>/<slug>/` where `slug = src.stem`.
-- [x] Reject/skip files whose parent directory is not a 4-digit year.
-- [x] Normalize slugs (no changes applied; rely on existing filenames to avoid accidental renames).
+#### 1. Create About source
+- File: `pages/about.md`
+- Content skeleton:
+```markdown
+# About
 
-#### 2. Copy static assets
-**File**: `tools/build.py`
-**Changes**:
-- [x] Copy `img/**` to `docs/img/**` (preserve relative paths).
-- [x] Ensure `docs/_static/**` remains untouched; create if missing.
+Hi, I’m Kasper. This is a minimal, text-first blog.
+```
 
-  Example structure:
-  ```python
-  import shutil
+#### 2. Add page rendering function
+- File: `tools/build.py`
+- Insert after line 121 (end of `render_post`):
+```python
+def render_page(src: Path) -> Path:
+    """Render a generic Markdown page to docs/<slug>/index.html using the same template."""
+    slug = src.stem
+    out_dir = DOCS_DIR / slug
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_html = out_dir / "index.html"
+    cmd = [
+        "pandoc",
+        str(src),
+        "--standalone",
+        "--from",
+        "markdown+yaml_metadata_block",
+        "--template",
+        str(TEMPLATE),
+        "--output",
+        str(out_html),
+    ]
+    subprocess.run(cmd, check=True)
+    return out_html
+```
 
-  def copy_assets():
-      src = Path('img')
-      dst = Path('docs/img')
-      if src.exists():
-          for p in src.rglob('*'):
-              if p.is_file():
-                  out = dst / p.relative_to(src)
-                  out.parent.mkdir(parents=True, exist_ok=True)
-                  shutil.copy2(p, out)
-  ```
+#### 3. Discover and render pages in main
+- File: `tools/build.py`
+- Edit `main()` to render pages before copying assets and building indices. Current context:
+```176:201:/Users/kasperjunge/gitrepo/writing/kasperjunge.github.io/tools/build.py
+def main() -> None:
+    posts_info: List[Dict[str, str]] = []
+    for year, src in discover_posts():
+        meta = extract_meta(src)
+        out_html = render_post(year, src)
+        # Determine sort key: prefer parsed date, else file mtime
+        parsed_dt = _parse_date(meta.get("date")) if meta.get("date") else None
+        sort_ts = (
+            parsed_dt.timestamp() if parsed_dt else src.stat().st_mtime
+        )
+        posts_info.append(
+            {
+                "title": meta.get("title") or src.stem,
+                "date": meta.get("date"),
+                "year": year,
+                "slug": src.stem,
+                "path": str(out_html),
+                "sort_ts": sort_ts,
+            }
+        )
+    # Copy static assets after posts are rendered
+    copy_assets()
+    # Sort posts by descending recency
+    posts_info.sort(key=lambda p: p["sort_ts"], reverse=True)
+    build_indices(posts_info)
+```
+- Replace the marked section (just before `copy_assets()`) by inserting pages rendering:
+```python
+    # Render standalone pages (e.g., About)
+    pages_dir = Path("pages")
+    if pages_dir.exists():
+        for src in sorted(pages_dir.glob("*.md")):
+            render_page(src)
+```
 
 ### Success Criteria
 
-#### Automated Verification:
-- [x] Builder places files strictly under `docs/posts/<year>/<slug>/index.html`
-- [x] `docs/img/**` mirrors `img/**`
+#### Automated Verification
+- [x] Build succeeds: `uv run python tools/build.py`.
+- [x] File exists: `test -f docs/about/index.html`.
 
-#### Manual Verification:
-- [ ] Spot-check a few posts and images load correctly
+#### Manual Verification
+- [ ] Visit `/about/`; content renders with site header and template styles.
 
 ---
 
-## Phase 3: Generate minimal index pages
+## Phase 4: Verify locally and deploy
 
 ### Overview
-Produce a simple homepage listing recent posts and a yearly archive page per year.
+Confirm generation locally and push for GitHub Pages to serve.
 
 ### Changes Required
-
-#### 1. Homepage index
-**File**: `tools/build.py`
-**Changes**:
-- [x] In `build_indices`, sort posts by (1) parsed date if available, else (2) file mtime.
-- [x] Render `docs/index.html` with a list of the N most recent posts (`/posts/<year>/<slug>/`).
-
-  Example structure:
-  ```python
-  def render_home(posts_info, limit=10):
-      items = []
-      for p in posts_info[:limit]:
-          url = f"/posts/{p['year']}/{p['slug']}/"
-          title = html.escape(p['title'])
-          items.append(f"<li><a href='{url}'>{title}</a></li>")
-      html_doc = """
-      <html><head><meta charset='utf-8'><link rel='stylesheet' href='/_static/theme.css'></head>
-      <body><h1>Kasper Junge Blog</h1><ul>
-      %s
-      </ul></body></html>
-      """ % ("\n".join(items))
-      (DOCS_DIR / 'index.html').write_text(html_doc, encoding='utf-8')
-  ```
-
-#### 2. Yearly archives
-**File**: `tools/build.py`
-**Changes**:
-- [x] Render `docs/blog/<year>/index.html` per year, listing all posts for that year.
+- Local serve: `python serve.py` then open `http://localhost:8000/` and `http://localhost:8000/about/`.
+- Deploy: `python deploy.py` (or your preferred git workflow).
 
 ### Success Criteria
 
-#### Automated Verification:
-- [x] `docs/index.html` exists
-- [x] `docs/blog/<year>/index.html` exists for years with posts
+#### Automated Verification
+- [x] Build succeeds: `uv run python tools/build.py`.
+- [ ] Git push succeeds.
 
-#### Manual Verification:
-- [ ] Open homepage and year pages; links resolve to post pages
-
----
-
-## Phase 4: Swap serve/deploy scripts to use Python builder
-
-### Overview
-Switch `serve.py` and `deploy.py` from ABlog to the new builder, preserving the developer workflow. Keep ABlog files unchanged for rollback.
-
-### Changes Required
-
-#### 1. Update local serve script
-**File**: `serve.py`
-**Changes**:
-- [x] Replace ABlog build/serve calls with: run builder, then serve `docs/` statically.
-- [x] Line 5 replaced with `subprocess.run("uv run python tools/build.py", shell=True)`
-- [x] Line 6 replaced with `subprocess.run("python -m http.server -d docs 8000", shell=True)`
-
-#### 2. Update deploy script
-**File**: `deploy.py`
-**Changes**:
-- [x] Replace ABlog build with builder invocation; keep commit/push and GH Pages deploy if still desired.
-- [x] Line 10 replaced with `subprocess.run("uv run python tools/build.py", shell=True)`
-- [x] Use git push for deploy; Pages serves from `docs/` on main
-
-### Success Criteria
-
-#### Automated Verification:
-- [x] `uv run python tools/build.py` is called by both `serve.py` and `deploy.py` without errors
-- [x] Running `python serve.py` serves the site locally on `http://localhost:8000/` (manual to confirm)
-
-#### Manual Verification:
-- [ ] Visit `http://localhost:8000/` and navigate to several posts; URLs match prior scheme
-- [ ] Run `python deploy.py` on a test branch and confirm GitHub Pages updates normally
+#### Manual Verification
+- [ ] GitHub Pages serves `/` and `/about/` with styles and header.
 
 ---
 
 ## Testing Strategy
 
-### Unit/Smoke Tests
-- Add a simple smoke check script to validate outputs after build (optional for minimalism):
-  - **File**: `tools/smoke_check.py`
-  - Checks that a sample of expected `docs/posts/<year>/<slug>/index.html` files exist and that `docs/index.html` contains links.
+### Unit Tests
+- None in this repo; rely on build success and file existence checks.
+
+### Integration Tests
+- Sanity check with `curl`:
+  - `curl -sSf http://localhost:8000/about/ | rg 'site-header'` → header present
+  - `curl -sSf http://localhost:8000/posts/2023/a-process-for-building-llm-classifiers/ | rg '<main'` → body present
 
 ### Manual Testing Steps
-1. Ensure Pandoc is installed: `pandoc -v`.
-2. Run `uv run python tools/build.py`.
-3. Open `docs/index.html` directly and click through to a few posts.
-4. Start server: `python -m http.server -d docs 8000` and navigate to `http://localhost:8000/`.
-5. Validate images and `_static/theme.css` are loading.
+1. Run `uv run python tools/build.py`.
+2. Inspect `docs/_static/theme.css`, `docs/index.html`, `docs/blog/2023/index.html`, and `docs/about/index.html` for expected markup.
+3. Serve locally and verify header links and styles load.
 
 ## Performance Considerations
-- The builder traverses a small tree and runs Pandoc per post; acceptable for current scale.
-- Future optimization: parallelize Pandoc calls if build time becomes material.
+- CSS is a single small file; negligible impact. No JS added.
 
 ## Migration Notes
-- ABlog/Sphinx files remain untouched; `serve.py`/`deploy.py` are the only scripts switching behavior.
-- If issues arise, re-run ABlog build and deploy (see rollback) and revert script changes.
+- None required. Existing content is unaffected; new CSS applies globally.
 
 ## Rollback Strategy
-- Revert `serve.py` line 5 to `subprocess.run("uv run ablog build -w docs", shell=True)` and line 6 to `subprocess.run("uv run ablog serve -r -w docs", shell=True)`.
-- Revert `deploy.py` line 10 to `subprocess.run("uv run ablog build -w docs", shell=True)` and keep existing deploy steps.
-- Delete any newly added files if desired: `tools/build.py`, `templates/base.html`, `docs/_static/theme.css`.
+- Revert edits to `templates/base.html` and `tools/build.py` and remove `docs/_static/theme.css` and `docs/about/`.
 
 ## References
-- Research: `context-engineering/2025-10-11-research-current-blog-architecture-and-slugs.md`
-- Config: `conf.py`
-- Scripts: `serve.py`, `deploy.py`
-- Sources: `posts/`
-- Outputs: `docs/`
+- Research: `context-engineering/2025-10-12-research-blog-styling-and-about-page.md`
+- Template: `templates/base.html`
+- Builder: `tools/build.py`
