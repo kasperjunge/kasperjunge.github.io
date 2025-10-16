@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="/_static/theme.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a href="/">blog</a>
+        <a href="/about/">about</a>
+      </div>
+    </header>
+    <main class="container">
+      <h1 id="agent-skills">Agent Skills</h1>
+      <p>Anthropic har netop launch’et konceptet “Skills” på tværs af
+      Claude Apps, Claude Code og Claude API.</p>
+      <h2 id="hvad-er-en-agent-skill">Hvad er en Agent Skill?</h2>
+      <p>En skill består af en mappe med en SKILL.md-fil og et
+      vilkårligt antal filer. En skill har tre niveauer af detalje: 1.
+      Navn og beskrivelse 2. Brødteksten i SKILL.md 3. Eventuelle filer
+      i skill-mappen</p>
+      <p>Navn og beskrivelse bruges af agenten til at vurdere, om den
+      skal bruge skill’en eller ej - præcis ligesom MCP.</p>
+      <h2 id="hvordan-fungerer-skills">Hvordan fungerer Skills?</h2>
+      <p>Brødteksten i SKILL.md fungerer som en form for manual med en
+      indholdsfortegnelse. Filerne i skill-mappen kan være
+      markdown-filer med brugbar information til den pågældende skill
+      eller kode, som kan eksekveres.</p>
+      <p>Anthropic kalder det for “progressive disclosure” - at agenten
+      ikke behøver al information på én gang, men kan dykke ned i den
+      information og funktionalitet, der er knyttet til en skill,
+      gradvist efter behov.</p>
+      <p>Kort sagt: Skills gør det muligt at bygge composable viden og
+      evner, som agenter kan dele.</p>
+      <h2 id="hvorfor-er-det-vigtigt">Hvorfor er det vigtigt?</h2>
+      <p>For dem, der ikke kan se potentialet i prompt- og context
+      engineering, kan primitives som commands og subagents, som
+      Anthropic har introduceret i Claude Code, virke basale, fjollede
+      og antropomorfiserende.</p>
+      <p>Men det er tydeligt, at Anthropic er længst fremme, når det
+      gælder primitives for agenter, hvilket jeg tror i høj grad skyldes
+      det fantastiske udvikler community de har fået op at køre omkring
+      Claude Code.</p>
+      <p>I begyndelsen handlede Claude Code om at bygge AI-kodeagenter,
+      men udviklerne fandt hurtigt ud af, at Claude Code og den
+      dertilhørende SDK fungerede supergodt som et generelt
+      agentudviklingsværktøj - ikke kun til kode.</p>
+      <p>Det er også årsagen til, at Anthropic netop har omdøbt Claude
+      Code SDK til det mere generelle Claude Agent SDK.</p>
+      <p>Anthropic står bag flere nyskabelser som MCP, subagents og
+      commands - alle værktøjer, der løfter context engineering til
+      næste niveau.</p>
+      <p>De gør det lettere at: - delegere indhentning og generering af
+      kontekst - standardisere udstillingen af funktionalitet - genbruge
+      prompts, så man investerer i sine prompts i stedet for at smide
+      dem væk.</p>
+      <h2 id="bliver-det-stort">Bliver det stort?</h2>
+      <p>Jeg har stor tillid til, at Anthropics ræsonnement bag at
+      introducere Skills kommer af et hav af iterationer, hvor behovet
+      for netop dette koncept er blevet klart for udviklerne hos
+      Anthropic.</p>
+      <p>Skills gør det muligt at komponere en agents evner med
+      specifikke instruktioner, ressourcer og scripts, som agenten kan
+      afvikle.</p>
+      <p>Anthropic nævner også et muligt marketplace for skills - noget,
+      der potentielt kan udvikle sig til et slags pakkeindex for
+      AI-agenter, på samme måde som PyPI er for Python.</p>
+      <p>Der er efter min mening ingen tvivl om at Anthropic er ledende,
+      når det gælder opbygningen af et åbent økosystem for agent context
+      engineering.</p>
+      <p>Jeg tror, Anthropic har ramt den lige i røven her.</p>
+      <p>Igen.</p>
+      <p>Læs mere om Agent Skills her:</p>
+      <p>https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills</p>
+    </main>
+  </body>
+  </html>
+
+
