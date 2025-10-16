@@ -194,8 +194,6 @@ def copy_assets() -> None:
             out_path = dst_root / p.relative_to(src_root)
             out_path.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(p, out_path)
-    # Ensure .nojekyll exists to prevent GitHub Pages from using Jekyll
-    (DOCS_DIR / ".nojekyll").touch()
 
 
 def main() -> None:
