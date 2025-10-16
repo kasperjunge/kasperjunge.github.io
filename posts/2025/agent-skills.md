@@ -12,10 +12,12 @@ Anthropic har netop launch’et konceptet “Skills” på tværs af Claude Apps
 ## Hvad er en Agent Skill?
 
 En skill består af en mappe med en SKILL.md-fil og et vilkårligt antal filer.
+
 En skill har tre niveauer af detalje:
-	1.	Navn og beskrivelse
-	2.	Brødteksten i SKILL.md
-	3.	Eventuelle filer i skill-mappen
+
+1. Navn og beskrivelse
+2. Brødteksten i SKILL.md
+3. Eventuelle filer i skill-mappen
 
 Navn og beskrivelse bruges af agenten til at vurdere, om den skal bruge skill’en eller ej - præcis ligesom MCP.
 
@@ -41,6 +43,7 @@ Det er også årsagen til, at Anthropic netop har omdøbt Claude Code SDK til de
 Anthropic står bag flere nyskabelser som MCP, subagents og commands - alle værktøjer, der løfter context engineering til næste niveau.
 
 De gør det lettere at:
+
 - delegere indhentning og generering af kontekst
 - standardisere udstillingen af funktionalitet
 - genbruge prompts, så man investerer i sine prompts i stedet for at smide dem væk.
