@@ -1,5 +1,4 @@
 ---
-blogpost: true
 date: Oct 16, 2025
 author: Kasper Junge
 language: Danish
@@ -66,4 +65,3 @@ Igen.
 Læs mere om Agent Skills her:
 
 https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
-
