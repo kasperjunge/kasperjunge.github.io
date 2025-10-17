@@ -47,5 +47,4 @@ Til gengæld har produktvirksomheder en gylden mulighed for at øge hastigheden,
 Det peger mod:
 
 - bedre softwareprodukter  
-- at konsulenter må genoverveje deres forretningsmodel  
-- og måske skifte til værdibaseret prissætning frem for timer.
+- at konsulenter må genoverveje deres forretningsmodel og måske skifte til værdibaseret prissætning frem for timer.
