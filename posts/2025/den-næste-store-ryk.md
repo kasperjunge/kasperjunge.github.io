@@ -29,8 +29,7 @@ Et andet område, der rykker voldsomt, er Context Engineering.Det er blevet tyde
 ## Hvordan bliver vores arbejde i fremtiden?
 Vi ser altså det næste ryk ske lige nu, og det betyder, at vi som softwareingeniører kigger ind i en helt ny måde at arbejde på.
 
-Vi kan sætte agenter i gang med opgaver asynkront med vores eget arbejde.  
-Vores rolle bliver at:
+Vi kan sætte agenter i gang med opgaver asynkront med vores eget arbejde. Vores rolle bliver at:
 
 - kommunikere opgaven klart  
 - sikre at agenterne har den nødvendige kontekst  
@@ -39,12 +38,10 @@ Vores rolle bliver at:
 Denne arbejdsform kaldes nogle steder for “async programming”, og det bliver en kritisk færdighed for udviklere, fordi den markant øger produktiviteten.
 
 ## Perspektiv
-Konsulentbranchen står over for en udfordring - deres model bygger på timeafregning.  
-Når AI-agenter gør udviklere 5–10x hurtigere, falder værdien af en time.
+Konsulentbranchen står over for en udfordring - deres model bygger på timeafregning.Når AI-agenter gør udviklere 5–10x hurtigere, falder værdien af en time.
 
 Til gengæld har produktvirksomheder en gylden mulighed for at øge hastigheden, hvormed de leverer værdi til kunderne.  
 
-Det peger mod:
+Det peger mod at vi får bedre softwareprodukter da tech produkt virksomheder kan levere hurtigere og at konsulentvirksomheder må genoverveje deres forretningsmodel og måske skifte til værdibaseret prissætning frem for timer.
 
-- bedre softwareprodukter  
-- at konsulenter må genoverveje deres forretningsmodel og måske skifte til værdibaseret prissætning frem for timer.
+Connect gerne med mig på [LinkedIn](https://www.linkedin.com/in/kasper-juunge/), hvis du har nogle spændende tanker du vil dele om emnet 👍
